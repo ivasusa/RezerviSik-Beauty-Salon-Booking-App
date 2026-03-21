@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profil - RezerviŠik</title>
+    <link rel="stylesheet" href="{% static 'main-styles.css' %}" />
+    <script src="{% static 'main-scripts.js' %}" defer></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="{% static 'logo.png' %}" alt="RezerviŠik Logo"
+                     style="height:40px; margin-right:10px; vertical-align:middle;" />
+                {{ salon_name }}
+            </div>
+
+            <div class="user-info">{{ staff_name }} ({{ staff_role }})</div>
+
+            <div class="user-info">
+                <form method="post" action="{% url 'logout_user' %}">
+                  {% csrf_token %}
+                  <button type="submit" class="btn">Odjavi se</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- PORUKE -->
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="staff-grid">
+            <aside class="sidebar">
+                <h3>Moj Panel</h3>
+                <ul class="sidebar-menu">
+                     <li><a href="{% url 'osoblje_pregled' %}">Pregled</a></li>
+                     <li><a href="{% url 'osoblje_zakazi_termin' %}">Zakaži Termin</a></li>
+                     <li><a href="{% url 'osoblje_kalendar' %}">Kalendar</a></li>
+                     <li><a href="{% url 'osoblje_moj_profil' %}">Moj Profil</a></li>
+                </ul>
+            </aside>
+
+            <div class="content">
+                <div id="profile">
+                    <h2>Moj Profil</h2>
+                    <div class="profile-form">
+                        <form method="post" action="{% url 'osoblje_izmeni_profil' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="name">Ime:</label>
+                                <input type="text" id="name" name="name" value="{{ staff.userid.name }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="surname">Prezime:</label>
+                                <input type="text" id="surname" name="surname" value="{{ staff.userid.surname }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon:</label>
+                                <input type="tel" id="phone" name="phone" value="{{ staff.userid.phone|default_if_none:'' }}" placeholder="Unesite broj telefona">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Nova lozinka:</label>
+                                <input type="password" id="password" name="password" placeholder="Unesite novu lozinku">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Potvrdi lozinku:</label>
+                                <input type="password" id="confirm-password" name="confirm_password" placeholder="Potvrdite lozinku">
+                            </div>
+                            <button type="submit" class="btn">Sačuvaj Promene</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

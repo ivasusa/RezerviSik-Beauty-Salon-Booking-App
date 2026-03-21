@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kalendar - RezerviŠik</title>
+
+    <link rel="stylesheet" href="{% static 'main-styles.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'osoblje-kalendar.css' %}" />
+
+    <script src="{% static 'main-scripts.js' %}" defer></script>
+
+    <script src="{% static 'osoblje-kalendar.js' %}" defer></script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="{% static 'logo.png' %}"
+                 alt="Logo"
+                 style="height:40px; margin-right:10px; vertical-align:middle;" />
+            {{ salon_name }}
+        </div>
+
+
+        <div class="user-info">{{ staff_name }} ({{ staff_role }})</div>
+
+        <div class="user-info">
+            <form method="post" action="{% url 'logout_user' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn">Odjavi se</button>
+            </form>
+        </div>
+    </nav>
+</header>
+
+<main class="main">
+    <div class="staff-grid">
+        <aside class="sidebar">
+            <h3>Moj Panel</h3>
+            <ul class="sidebar-menu">
+                <li><a href="{% url 'osoblje_pregled' %}">Pregled</a></li>
+                <li><a href="{% url 'osoblje_zakazi_termin' %}">Zakaži Termin</a></li>
+                <li><a href="{% url 'osoblje_kalendar' %}">Kalendar</a></li>
+                <li><a href="{% url 'osoblje_moj_profil' %}">Moj Profil</a></li>
+            </ul>
+        </aside>
+
+        <div class="content">
+            <div id="calendar"
+                 data-initial-year="{{ initial_year }}"
+                 data-initial-month="{{ initial_month }}"
+                 data-api-month="{% url 'api_osoblje_kalendar_mesec' %}"
+                 data-api-day="{% url 'api_osoblje_termini_dan' %}">
+
+                <h2>Moj Kalendar</h2>
+
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <button class="btn" id="prev-month">← Prethodni</button>
+                        <h3 id="calendar-title"></h3>
+                        <button class="btn" id="next-month">Sledeći →</button>
+                    </div>
+
+                    <div class="calendar-grid" id="calendar-grid"></div>
+                </div>
+
+                <hr style="margin: 20px 0;">
+
+                <div class="day-details-header">
+                    <h3>Termini za izabrani dan</h3>
+                    <div id="selected-date" class="selected-date"></div>
+                </div>
+
+                <div id="day-details" class="schedule-grid"></div>
+
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

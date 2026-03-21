@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- Autor: Jovana Simić -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Usluge - RezerviŠik</title>
+    <link rel="stylesheet" href="main-styles.css" />
+    <script src="main-scripts.js" defer></script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="logo.png" alt="RezerviŠik Logo" style="height:40px; margin-right:10px; vertical-align:middle;" />
+            Wizard
+        </div>
+        <div class="user-info">Sandra Jovanić (Vlasnik)</div>
+        <div class="user-info"><button class="btn" onclick="confirmLogout()">Odjavi se</button></div>
+    </nav>
+</header>
+
+<main class="main">
+    <div class="owner-grid">
+        <aside class="sidebar">
+            <h3>Upravljanje Salonom</h3>
+            <ul class="sidebar-menu">
+                <li><a href="owner-dashboard.html" class="active">Pregled</a></li>
+                <li><a href="owner-salon.html">Moj profil</a></li>
+                <li><a href="owner-services.html">Usluge</a></li>
+                <li><a href="owner-staff.html">Osoblje</a></li>
+                <li><a href="owner-calendar.html">Kalendar</a></li>
+                <li><a href="owner-reviews.html">Recenzije</a></li>
+                <li><a href="owner-statistics.html">Statistika</a></li>
+            </ul>
+        </aside>
+
+        <div class="content">
+                <div id="profile">
+                            <h2>Moj profil</h2><br>
+                             <div class="profile-form">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="name">Ime i prezime:</label>
+                                        <input type="text" id="name" value="Sandra Jovanović" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        <input type="email" id="email" value="sandra@email.com" readonly>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="phone">Telefon:</label>
+                                        <input type="tel" id="phone" value="+381 60 987 6543" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Nova lozinka:</label>
+                                        <input type="password" id="password" placeholder="Unesite novu lozinku" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Potvrdi lozinku:</label>
+                                        <input type="password" id="password" placeholder="Potvrdite lozinku" required>
+                                    </div>
+
+                                    <div class="form-group"><br>
+                                        <h2>Podaci o salonu:<h2>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="name">Naziv salona:</label>
+                                        <input type="text" id="name" value="Wizard" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="address">Adresa salona:</label>
+                                        <input type="text" id="address" value="Krunska 12b" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="phone">Telefon:</label>
+                                        <input type="tel" id="phone" value="011 987 6543" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="service">Opis usluga:</label>
+                                        <textarea id="service" name="service" rows="5" cols="40" placeholder="Kozmetičke usluge"></textarea>
+                                    </div>
+
+                                    
+                                    <button type="submit" class="btn">Sačuvaj Promene</button>
+                                </form>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

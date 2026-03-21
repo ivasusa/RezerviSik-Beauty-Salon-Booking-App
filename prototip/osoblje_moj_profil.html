@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- Autor: Maša Avramović -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osoblje - RezerviŠik</title>
+    <link rel="stylesheet" href="main-styles.css">
+    <script src="main-scripts.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo.png" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                Wizard
+            </div>
+            <div class="user-info">Jelena Marković (Frizerka)</div>
+            <div class="user-info"><button class="btn" onclick="confirmLogout()">Odjavi se</button></div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="staff-grid">
+            <aside class="sidebar">
+                <h3>Moj Panel</h3>
+                <ul class="sidebar-menu">
+                    <li><a href="osoblje_pregled.html">Pregled</a></li>
+                    <li><a href="osoblje_moj_raspored.html">Moj Raspored</a></li>
+                    <li><a href="osoblje_zakazi_termin.html">Zakaži Termin</a></li>
+                    <li><a href="osoblje_kalendar.html">Kalendar</a></li>
+                    <li><a href="osoblje_moj_profil.html">Moj Profil</a></li>
+                </ul>
+            </aside>
+
+            <div class="content">
+
+                <div id="profile">
+                    <h2>Moj Profil</h2>
+                    <div class="profile-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Ime i prezime:</label>
+                                <input type="text" id="name" value="Jelena Marković" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" value="jelena@salonlepota.com" readonly>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Telefon:</label>
+                                <input type="tel" id="phone" value="+381 60 123 4567" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="position">Pozicija:</label>
+                                <input type="text" id="position" value="Frizerka" readonly>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password">Nova lozinka:</label>
+                                <input type="password" id="password" placeholder="Unesite novu lozinku">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Potvrdi lozinku:</label>
+                                <input type="password" id="confirm-password" placeholder="Potvrdite novu lozinku">
+                            </div>
+                            <button type="submit" class="btn">Sačuvaj Promene</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html> 

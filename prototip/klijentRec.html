@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Autor: Sandra Bubanja -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main-styles.css">
+    <script src="main-scripts.js"></script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+<div class="logo">
+                <img src="logo.png" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                RezerviŠik
+            </div><div class="user-info"><button class="btn" onclick="window.location.href='salons.html'">
+        Pretraži salone
+    </button></div>        <div class="user-info">Jovana Marković (Klijent)</div>
+        <div class="user-info"><button class="btn" onclick="confirmLogout()">Odjavi se</button></div>
+    </nav>
+</header>
+    <main class="main">
+        <div class="client-grid">
+            <aside class="sidebar">
+                <h3>Moj Panel</h3>
+                <ul class="sidebar-menu">
+                    <li><a href="klijentPregled.html">Pregled</a></li>
+                    <li><a href="klijentMojeRez.html">Moje rezervacije</a></li>
+                    <li><a href="klijentRec.html">Recenzije</a></li>
+                    <li><a href="klijentMojProfil.html">Moj profil</a></li>
+                </ul>
+            </aside>
+            <div class="content">
+            <div id="reviews">
+                <h2>Moje recenzije</h2>
+                    <div style="background-color: #f5f1ee; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                        <h3>Dodaj Recenziju</h3>
+                        <form id="review-form">
+                            <div class="form-group">
+                                <label for="review-salon">Salon:</label>
+                                <select id="review-salon" required>
+                                    <option value="">Izaberite salon</option>
+                                    <option value="salon-lepota">Wizard Studio</option>
+                                    <option value="beauty-studio">Kube Imperia</option>
+                                    <option value="wellness-center">Wellness Center Relax</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="review-rating">Ocena (1-5):</label>
+                                <div class="rating-input" style="display: flex; gap: 0.5rem; margin: 0.5rem 0;">
+                                    <button type="button" class="star-btn" data-rating="1" onclick="setRating(1)">★</button>
+                                    <button type="button" class="star-btn" data-rating="2" onclick="setRating(2)">★</button>
+                                    <button type="button" class="star-btn" data-rating="3" onclick="setRating(3)">★</button>
+                                    <button type="button" class="star-btn" data-rating="4" onclick="setRating(4)">★</button>
+                                    <button type="button" class="star-btn" data-rating="5" onclick="setRating(5)">★</button>
+                                </div>
+                                <input type="hidden" id="review-rating" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="review-comment">Komentar:</label>
+                                <textarea id="review-comment" rows="4" placeholder="Podelite vaše iskustvo..." required></textarea>
+                            </div>
+                            <div id="review-message" class="notification hidden"></div>
+                            <button type="submit" class="btn">Objavi recenziju</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

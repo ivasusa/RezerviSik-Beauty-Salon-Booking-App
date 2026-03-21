@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- Autor: Iva Šuša -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RezerviŠik - Saloni</title>
+    <link rel="stylesheet" href="main-styles.css">
+    <script src="main-scripts.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo.png" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                RezerviŠik
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Početna</a></li>
+                <li><a href="salons.html">Saloni</a></li>
+                <li><a href="login.html">Prijava</a></li>
+                <li><a href="register.html">Registracija</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <h2>Saloni</h2>
+        
+        <div style="background-color: #edc7c1; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+            <h3 style="margin-bottom: 1rem;">Pretraga i Filteri</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div class="form-group">
+                    <label for="search-name">Pretraga po nazivu:</label>
+                    <input type="text" id="search-name" placeholder="Unesite naziv salona..." oninput="filterSalons()">
+                </div>
+                <div class="form-group">
+                    <label for="filter-category">Kategorija usluga:</label>
+                    <select id="filter-category" onchange="filterSalons()">
+                        <option value="">Sve kategorije</option>
+                        <option value="frizerske">Frizerske usluge</option>
+                        <option value="kozmeticke">Kozmetičke usluge</option>
+                        <option value="wellness">Wellness usluge</option>
+                        <option value="depilation">Usluge depilacije</option>
+                        <option value="nails">Usluge izrade noktiju</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filter-rating">Minimalna ocena:</label>
+                    <select id="filter-rating" onchange="filterSalons()">
+                        <option value="">Sve ocene</option>
+                        <option value="4.5">4.5+ ⭐</option>
+                        <option value="4.0">4.0+ ⭐</option>
+                        <option value="3.5">3.5+ ⭐</option>
+                        <option value="3.0">3.0+ ⭐</option>
+                        <option value="2.5">2.5+ ⭐</option>
+                        <option value="2.0">2.0+ ⭐</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn" onclick="resetFilters()" style="background-color: #8b6b5f;">Resetuj filtere</button>
+        </div>
+        
+        <div id="no-results" class="hidden" style="text-align: center; padding: 2rem; background-color: #edc7c1; border-radius: 10px;">
+            <h3>Nema rezultata za dati pojam</h3>
+            <p>Pokušajte sa drugim kriterijumima pretrage.</p>
+        </div>
+        
+        <div class="salon-grid" id="salon-grid">
+            <div class="salon-card" data-category="frizerske" data-rating="4.8">
+                <img src="imperia.jpg" alt="Imperia" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                <h3>Imperia</h3>
+                <p><strong>Adresa:</strong> Knez Mihailova 15, Beograd</p>
+                <p><strong>Kategorija:</strong> Frizerske usluge</p>
+                <p><strong>Usluge:</strong> Šišanje, Feniranje, Manikir, Pedikir</p>
+                <div class="rating">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    <span>(3.8/5)</span>
+                </div>
+                <a href="imperia.html" class="btn">Pogledaj Detalje</a>
+            </div>
+            <div class="salon-card" data-category="kozmeticke" data-rating="4.9">
+                <img src="wizard.jpg" alt="Wizard" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                <h3>Wizard</h3>
+                <p><strong>Adresa:</strong> Terazije 8, Beograd</p>
+                <p><strong>Kategorija:</strong> Kozmetičke usluge</p>
+                <p><strong>Usluge:</strong> Kozmetičke usluge, Masaže, Tretmani</p>
+                <div class="rating">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    <span>(4.9/5)</span>
+                </div>
+                <a href="wizard.html" class="btn">Pogledaj Detalje</a>
+            </div>
+            <div class="salon-card" data-category="wellness" data-rating="4.2">
+                <img src="wellness-center.jpg" alt="Wellness Center" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                <h3>Wellness Center Relax</h3>
+                <p><strong>Adresa:</strong> Vračar Historical 22, Beograd</p>
+                <p><strong>Kategorija:</strong> Wellness i masaže</p>
+                <p><strong>Usluge:</strong> Masaže, Spa tretmani, Relaksacija</p>
+                <div class="rating">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
+                    <span>(4.2/5)</span>
+                </div>
+                <a href="wellness-center.html" class="btn">Pogledaj Detalje</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

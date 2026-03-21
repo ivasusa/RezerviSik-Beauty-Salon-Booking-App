@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- Autor: Iva Šuša -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Svi Korisnici - Sistem Administrator</title>
+    <link rel="stylesheet" href="main-styles.css">
+    <script src="main-scripts.js" defer></script>
+</head>
+<body>
+<header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo.png" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                RezerviŠik 
+            </div>
+            <div class="user-info">
+                <ul style="display: flex; align-items: center; gap: 10px; list-style: none; margin: 0; padding: 0;">
+                    <button onclick="confirmLogout()" class="btn">Odjavi se</button>
+                    <li>Sistem Administrator</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="admin-grid">
+            <aside class="sidebar">
+                <h3>Meni</h3>
+                <ul class="sidebar-menu">
+                    <li><a href="admin-dashboard.html">Pregled</a></li>
+                    <li><a href="admin-salon-owners.html">Vlasnici Salona</a></li>
+                    <li><a href="admin-all-users.html">Svi Korisnici</a></li>
+                </ul>
+            </aside>
+
+            <div class="content">
+                <h2>Svi klijenti u sistemu</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Ime i Prezime</th>
+                            <th>Email</th>
+                            <th>Tip Korisnika</th>
+                            <th>Status</th>
+                            <th>Akcije</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jovana Jovanić</td>
+                            <td>jovana@email.com</td>
+                            <td>Klijent</td>
+                            <td><span class="status-approved">Aktivan</span></td>
+                            <td>
+                                <button class="btn btn-approve">Odobri</button>
+                                <button class="btn btn-reject">Odbij</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Iva Ivić</td>
+                            <td>iva2312@email.com</td>
+                            <td>Klijent</td>
+                            <td><span class="status-approved">Aktivan</span></td>
+                            <td>
+                                <button class="btn btn-approve">Odobri</button>
+                                <button class="btn btn-reject">Odbij</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Maša Mašić</td>
+                            <td>masa@email.com</td>
+                            <td>Klijent</td>
+                            <td><span class="status-approved">Aktivan</span></td>
+                            <td>
+                                <button class="btn btn-approve">Odobri</button>
+                                <button class="btn btn-reject">Odbij</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sandra Sandrić</td>
+                            <td>sandra@email.com</td>
+                            <td>Klijent</td>
+                            <td><span class="status-approved">Aktivan</span></td>
+                            <td>
+                                <button class="btn btn-approve">Odobri</button>
+                                <button class="btn btn-reject">Odbij</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

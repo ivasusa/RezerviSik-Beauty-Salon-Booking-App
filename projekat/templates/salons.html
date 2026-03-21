@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- Autor: Iva Susa -->
+{% load static %}
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RezerviŠik - Saloni</title>
+    <link rel="stylesheet" href="{% static 'main-styles.css' %}">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="{% static 'logo.png' %}" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                RezerviŠik
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'login_user' %}">Prijava</a></li>
+                <li><a href="{% url 'register_user' %}">Registracija</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <h1>Saloni</h1>
+        <br>
+        <form method="get" style="background-color: #edc7c1; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+            <h2 style="margin-bottom: 1rem;">Pretraga i Filteri</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+
+                <div class="form-group">
+                    <label for="search-name">Pretraga po nazivu:</label>
+                    <input type="text"
+                           name="search-name"
+                           id="search-name"
+                           value="{{ search_name }}"
+                           placeholder="Unesite naziv salona...">
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Kategorija usluga:</label>
+                    <select name="category" id="category">
+    <option value="">Sve kategorije</option>
+    {% for cat in available_categories %}
+        <option value="{{ cat }}" {% if category == cat %}selected{% endif %}>
+            {{ cat }}
+        </option>
+    {% endfor %}
+</select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="rating">Minimalna ocena:</label>
+                    <select name="rating" id="rating">
+                        <option value="">Sve ocene</option>
+
+                        {% if rating == "4.5" %}
+                            <option value="4.5" selected>4.5+</option>
+                        {% else %}
+                            <option value="4.5">4.5+</option>
+                        {% endif %}
+
+                        {% if rating == "4.0" %}
+                            <option value="4.0" selected>4.0+</option>
+                        {% else %}
+                            <option value="4.0">4.0+</option>
+                        {% endif %}
+
+                        {% if rating == "3.5" %}
+                            <option value="3.5" selected>3.5+</option>
+                        {% else %}
+                            <option value="3.5">3.5+</option>
+                        {% endif %}
+
+                    </select>
+                </div>
+
+
+            <div style="display: flex; gap: 1rem;">
+                <button type="submit" class="btn">Pretraži</button>
+                <a href="{% url 'salonViews' %}" class="btn" style="background-color: #8b6b5f;">
+                    Resetuj filtere
+                </a>
+            </div>
+            </div>
+        </form>
+
+        
+        {% if no_results %}
+            <div id="no-results" style="text-align: center; padding: 2rem; background-color: #edc7c1; border-radius: 10px;">
+                <h3>Nema rezultata za dati pojam</h3>
+            </div>
+        {% endif %}
+        <div class="salon-grid" id="salon-grid">
+
+    {% for item in salons_data %}
+    {% with salon=item.salon %}
+    <div class="salon-card"
+         style="position: relative;"
+         data-categories="{% for cat in item.categories %}{{ cat }}{% if not forloop.last %},{% endif %}{% endfor %}"
+         data-rating="{{ salon.grade|default:0 }}">
+
+        <h3>{{ salon.name }}</h3>
+
+        <p><strong>Adresa:</strong> {{ salon.address }}</p>
+
+        <p><strong>Kategorije:</strong>
+            {% for cat in item.categories %}
+                {{ cat }}{% if not forloop.last %}, {% endif %}
+            {% empty %}
+                Nema definisanih kategorija
+            {% endfor %}
+        </p>
+
+        <p><strong>Usluge:</strong>
+            {% for srv in item.services %}
+                {{ srv }}{% if not forloop.last %}, {% endif %}
+            {% empty %}
+                Nema definisanih usluga
+            {% endfor %}
+        </p>
+
+        <div class="rating">
+            {% for i in "12345" %}
+                {% if salon.grade >= forloop.counter %}
+                    <span class="star full">★</span>
+                {% elif salon.grade >= forloop.counter|add:"-0.5" %}
+                    <span class="star half">★</span>
+                {% else %}
+                    <span class="star empty">★</span>
+                {% endif %}
+            {% endfor %}
+            <span>({{ salon.grade|default:"0.0" }}/5)</span>
+        </div>
+
+        <div>
+            <a href="{% url 'salon_detail' salon.salonid %}" class="btn" style="left: 10px; margin-top: auto;">
+                Pogledaj detalje
+            </a>
+        </div>
+
+    </div>
+    {% endwith %}
+{% endfor %}
+
+</div>
+
+
+
+    </main>
+
+</body>
+</html>

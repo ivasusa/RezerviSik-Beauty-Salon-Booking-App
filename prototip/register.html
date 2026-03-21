@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- Autor: Iva Šuša -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RezerviŠik - Registracija</title>
+    <link rel="stylesheet" href="main-styles.css">
+    <script src="main-scripts.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo.png" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                RezerviŠik
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Početna</a></li>
+                <li><a href="salons.html">Saloni</a></li>
+                <li><a href="login.html">Prijava</a></li>
+                <li><a href="register.html">Registracija</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="login-form">
+            <h2>Registracija</h2>
+            
+            <div id="user-type-selection" class="form-group">
+                <label>Tip korisnika:</label>
+                <div style="display: flex; gap: 1rem; margin: 1rem 0;">
+                    <button type="button" class="btn" onclick="selectUserType('client')">Klijent</button>
+                    <button type="button" class="btn" onclick="selectUserType('owner')">Vlasnik Salona</button>
+                </div>
+            </div>
+
+            <form id="client-registration" class="hidden">
+                <div class="form-group">
+                    <label for="client-name">Ime:</label>
+                    <input type="text" id="client-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-surname">Prezime:</label>
+                    <input type="text" id="client-surname" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-email">Email:</label>
+                    <input type="email" id="client-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-password">Lozinka (min. 8 karaktera):</label>
+                    <input type="password" id="client-password" minlength="8" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-phone">Broj telefona:</label>
+                    <input type="tel" id="client-phone" required>
+                </div>
+                <div id="client-message" class="notification hidden"></div>
+                <button type="submit" class="btn">Registruj se kao Klijent</button>
+                <button type="button" class="btn" onclick="resetRegistration()" style="background-color: #8b6b5f;">Nazad</button>
+            </form>
+
+            <form id="owner-registration" class="hidden">
+                
+                <h4 style="margin: 1rem 0; color: #5a4d47;">Lični podaci:</h4>
+                <div class="form-group">
+                    <label for="owner-name">Ime:</label>
+                    <input type="text" id="owner-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner-surname">Prezime:</label>
+                    <input type="text" id="owner-surname" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner-email">Email:</label>
+                    <input type="email" id="owner-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner-password">Lozinka (min. 8 karaktera):</label>
+                    <input type="password" id="owner-password" minlength="8" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner-phone">Broj telefona:</label>
+                    <input type="tel" id="owner-phone" required>
+                </div>
+                
+                <h4 style="margin: 1rem 0; color: #5a4d47;">Podaci o salonu:</h4>
+                <div class="form-group">
+                    <label for="salon-name">Naziv salona:</label>
+                    <input type="text" id="salon-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="salon-address">Adresa salona:</label>
+                    <input type="text" id="salon-address" required>
+                </div>
+                <div class="form-group">
+                    <label for="salon-contact">Kontakt telefon salona:</label>
+                    <input type="tel" id="salon-contact" required>
+                </div>
+                <div class="form-group">
+                    <label for="salon-description">Opis usluga:</label>
+                    <textarea id="salon-description" rows="4" placeholder="Usluge koje  salon pruža" required></textarea>
+                </div>
+                
+                <div id="owner-message" class="notification hidden"></div>
+                <button type="submit" class="btn">Registruj salon</button>
+                <button type="button" class="btn" onclick="resetRegistration()" style="background-color: #8b6b5f;">Nazad</button>
+            </form>
+            
+            <p style="margin-top: 1rem; text-align: center;">
+                 <a href="login.html" style="color: #5a4d47;">Prijavite se</a>
+            </p>
+        </div>
+    </main>
+</body>
+</html>

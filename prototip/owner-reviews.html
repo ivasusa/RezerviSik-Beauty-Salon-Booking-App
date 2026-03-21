@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- Autor: Jovana Simić -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Osoblje - RezerviŠik</title>
+    <link rel="stylesheet" href="main-styles.css" />
+    <script src="main-scripts.js" defer></script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="logo.png" alt="RezerviŠik Logo" style="height:40px; margin-right:10px; vertical-align:middle;" />
+            Wizard
+        </div>
+        <div class="user-info">Sandra Jovanić (Vlasnik)</div>
+        <div class="user-info"><button class="btn" onclick="confirmLogout()">Odjavi se</button></div>
+    </nav>
+</header>
+
+<main class="main">
+    <div class="owner-grid">
+        <aside class="sidebar">
+            <h3>Upravljanje Salonom</h3>
+            <ul class="sidebar-menu">
+                <li><a href="owner-dashboard.html" class="active">Pregled</a></li>
+                <li><a href="owner-salon.html">Moj profil</a></li>
+                <li><a href="owner-services.html">Usluge</a></li>
+                <li><a href="owner-staff.html">Osoblje</a></li>
+                <li><a href="owner-calendar.html">Kalendar</a></li>
+                <li><a href="owner-reviews.html">Recenzije</a></li>
+                <li><a href="owner-statistics.html">Statistika</a></li>
+            </ul>
+        </aside>
+
+        <div class="content">
+            <h2>Recenzije i Ocene</h2><br>
+                    <div class="filter0">
+                        <label for="review-filter-marks">Filtriraj po oceni:</label>
+                        <select id="review-filter-marks" onchange="filterReviews()">
+                            <option value="">Sve ocene</option>
+                            <option value="5">5 zvezda</option>
+                            <option value="4">4 zvezde</option>
+                            <option value="3">3 zvezde</option>
+                            <option value="2">2 zvezde</option>
+                            <option value="1">1 zvezda</option>
+                        </select>
+                    </div>
+                    
+                    <div id="reviews-container">
+                        <div class="review-card" data-rating="5" id="filterReviews">
+                            <div class="styleComm">
+                                <strong>Jovana M.</strong>
+                                <div class="rating">
+                                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                                    <span>(5/5)</span>
+                                </div>
+                            </div>
+                            <p>"Odličan salon, preporučujem! Osoblje je vrlo profesionalno i usluge su vrhunske."</p>
+                            <small style="color: #8b6b5f;">15.12.2024</small>
+                        </div>
+                        
+                        <div class="review-card" data-rating="5" id="filterReviews">
+                            <div class="styleComm">
+                                <strong>Stefan Đ.</strong>
+                                <div class="rating">
+                                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                                    <span>(5/5)</span>
+                                </div>
+                            </div>
+                            <p>"Profesionalno osoblje i kvalitetne usluge. Uvek izađem zadovoljan."</p>
+                            <small style="color: #8b6b5f;">12.12.2024</small>
+                        </div>
+                        
+                        <div class="review-card" data-rating="4" id="filterReviews">
+                            <div class="styleComm">
+                                <strong>Marija P.</strong>
+                                <div class="rating">
+                                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
+                                    <span>(4/5)</span>
+                                </div>
+                            </div>
+                            <p>"Zadovoljna sam uslugom, doći ću ponovo. Možda bi trebalo malo skratiti čekanje."</p>
+                            <small style="color: #8b6b5f;">10.12.2024</small>
+                        </div>
+                        
+                        <div class="review-card" data-rating="3" id="filterReviews">
+                            <div class="styleComm">
+                                <strong>Nikola T.</strong>
+                                <div class="rating">
+                                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span><span class="star empty">★</span>
+                                    <span>(3/5)</span>
+                                </div>
+                            </div>
+                            <p>"Solidno, ali očekivao sam više za tu cenu. Usluga je bila u redu."</p>
+                            <small style="color: #8b6b5f;">08.12.2024</small>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

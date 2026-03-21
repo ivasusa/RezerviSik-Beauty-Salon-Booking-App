@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moj profil - RezerviŠik</title>
+    <link rel="stylesheet" href="{% static 'main-styles.css' %}">
+    <script src="{% static 'main-scripts.js' %}"></script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="RezerviŠik Logo"
+                 style="height:40px; margin-right:10px; vertical-align:middle;" />
+            RezerviŠik
+        </div>
+
+        <ul class="nav-links">
+            <span class="user-info" style="display: flex; align-items: center;" >{{ request.user.get_full_name }} (Klijent)</span>
+
+        <li><div class="user-info">
+        <form method="get" action="{% url 'salonViews' %}" class="nav-form">
+                <button class ="btn" type="submit">Pretraži salone</button>
+            </form>
+        </div></li>
+
+        <li><div class="user-info"  >
+            <form method="post" action="{% url 'logout_user' %}"class="nav-form">
+                {% csrf_token %}
+                <button type="submit" class="btn" >Odjavi se</button>
+            </form>
+        </div></li></ul>
+    </nav>
+</header>
+
+<main class="main">
+    <div class="client-grid">
+        <aside class="sidebar">
+            <h3>Moj Panel</h3>
+            <ul class="sidebar-menu">
+                <li><a href="{% url 'klijent_pregled' %}">Pregled</a></li>
+                <li><a href="{% url 'klijent_moje_rez' %}">Moje rezervacije</a></li>
+                <li><a href="{% url 'klijent_recenzije' %}">Recenzije</a></li>
+                <li><a href="{% url 'klijent_moj_profil' %}">Moj profil</a></li>
+            </ul>
+        </aside>
+
+        <div class="content">
+            <div id="profile">
+                <h2>Moj profil</h2>
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="{% if message.tags %}{{ message.tags }}-msg{% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <div class="profile-form">
+                    <form method="POST" action="{% url 'update_profile' %}">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label for="name">Ime:</label>
+                            <input type="text" name="name" id="name" value="{{ request.user.first_name }}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="surname">Prezime:</label>
+                            <input type="text" name="surname" id="surname" value="{{ request.user.last_name }}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" value="{{ request.user.email }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Telefon:</label>
+                            <input type="tel" name="phone" id="phone" value="{{ legacy_user.phone|default_if_none:'' }}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Nova lozinka:</label>
+                            <input type="password" name="password" id="password" placeholder="Unesite novu lozinku">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm_password">Potvrdi lozinku:</label>
+                            <input type="password" name="confirm_password" id="confirm_password" placeholder="Potvrdite novu lozinku">
+                        </div>
+
+                        <button type="submit" class="btn">Sačuvaj Promene</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

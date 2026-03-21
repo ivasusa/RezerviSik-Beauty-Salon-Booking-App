@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- Autor: Jovana Simić -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Usluge - RezerviŠik</title>
+    <link rel="stylesheet" href="main-styles.css" />
+    <script src="main-scripts.js" defer></script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="logo.png" alt="RezerviŠik Logo" style="height:40px; margin-right:10px; vertical-align:middle;" />
+            Wizard
+        </div>
+        <div class="user-info">Sandra Jovanić (Vlasnik)</div>
+        <div class="user-info"><button class="btn" onclick="confirmLogout()">Odjavi se</button></div>
+    </nav>
+</header>
+
+<main class="main">
+    <div class="owner-grid">
+        <aside class="sidebar">
+            <h3>Upravljanje Salonom</h3>
+            <ul class="sidebar-menu">
+                <li><a href="owner-dashboard.html" class="active">Pregled</a></li>
+                <li><a href="owner-salon.html">Moj profil</a></li>
+                <li><a href="owner-services.html">Usluge</a></li>
+                <li><a href="owner-staff.html">Osoblje</a></li>
+                <li><a href="owner-calendar.html">Kalendar</a></li>
+                <li><a href="owner-reviews.html">Recenzije</a></li>
+                <li><a href="owner-statistics.html">Statistika</a></li>
+            </ul>
+        </aside>
+
+        <div class="content">
+            <h2>Upravljanje Uslugama</h2><br />
+            <button class="btn btn-add" onclick="showAddServiceForm()">Dodaj Novu Uslugu</button><br />
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Naziv Usluge</th>
+                        <th>Opis</th>
+                        <th>Trajanje</th>
+                        <th>Cena (RSD)</th>
+                        <th>Akcije</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Šišanje</td>
+                        <td>Profesionalno šišanje kose</td>
+                        <td>45 min</td>
+                        <td>800</td>
+                        <td>
+                            <button class="btn btn-delete">Obriši</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Feniranje</td>
+                        <td>Feniranje i oblikovanje kose</td>
+                        <td>30 min</td>
+                        <td>600</td>
+                        <td>
+                            <button class="btn btn-delete">Obriši</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Manikir</td>
+                        <td>Profesionalni manikir</td>
+                        <td>60 min</td>
+                        <td>500</td>
+                        <td>
+                            <button class="btn btn-delete">Obriši</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pedikir</td>
+                        <td>Profesionalni pedikir</td>
+                        <td>75 min</td>
+                        <td>700</td>
+                        <td>
+                            <button class="btn btn-delete">Obriši</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="add-service-form" class="hidden">
+                <br><h3>Dodaj Novu Uslugu</h3><br />
+                <form>
+                    <div class="form-group">
+                        <label for="service-name">Naziv usluge:</label>
+                        <input type="text" id="service-name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="service-description">Opis:</label>
+                        <textarea id="service-description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="service-duration">Trajanje (minuti):</label>
+                        <input type="number" id="service-duration" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="service-price">Cena (RSD):</label>
+                        <input type="number" id="service-price" required />
+                    </div>
+                    <button type="submit" class="btn btn-add">Dodaj Uslugu</button>
+                    <button type="button" class="btn" onclick="hideAddServiceForm()">Otkaži</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

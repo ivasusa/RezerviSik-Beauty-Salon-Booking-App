@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- Autor: Maša Avramović -->
+
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osoblje - RezerviŠik</title>
+    <link rel="stylesheet" href="main-styles.css">
+    <script src="main-scripts.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo.png" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                Wizard
+            </div>
+            <div class="user-info">Jelena Marković (Frizerka)</div>
+            <div class="user-info"><button class="btn" onclick="confirmLogout()">Odjavi se</button></div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="staff-grid">
+            <aside class="sidebar">
+                <h3>Moj Panel</h3>
+                <ul class="sidebar-menu">
+                    <li><a href="osoblje_pregled.html">Pregled</a></li>
+                    <li><a href="osoblje_moj_raspored.html">Moj Raspored</a></li>
+                    <li><a href="osoblje_zakazi_termin.html">Zakaži Termin</a></li>
+                    <li><a href="osoblje_kalendar.html">Kalendar</a></li>
+                    <li><a href="osoblje_moj_profil.html">Moj Profil</a></li>
+                </ul>
+            </aside>
+
+            <div class="content">
+                <div id="calendar">
+                    <h2>Moj Kalendar</h2>
+                    <div class="calendar">
+                        <div class="calendar-header">
+                            <button class="btn">← Prethodni</button>
+                            <h3>Avgust 2025</h3>
+                            <button class="btn">Sledeći →</button>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="calendar-day">Pon</div>
+                            <div class="calendar-day">Uto</div>
+                            <div class="calendar-day">Sre</div>
+                            <div class="calendar-day">Čet</div>
+                            <div class="calendar-day">Pet</div>
+                            <div class="calendar-day">Sub</div>
+                            <div class="calendar-day">Ned</div>
+                            
+                            <div class="calendar-day">1</div>
+                            <div class="calendar-day">2</div>
+                            <div class="calendar-day">3</div>
+                            <div class="calendar-day">4</div>
+                            <div class="calendar-day">5</div>
+                            <div class="calendar-day">6</div>
+                            <div class="calendar-day">7</div>
+                            
+                            <div class="calendar-day">8</div>
+                            <div class="calendar-day">9</div>
+                            <div class="calendar-day">10</div>
+                            <div class="calendar-day">11</div>
+                            <div class="calendar-day today">12</div>
+                            <div class="calendar-day">13</div>
+                            <div class="calendar-day">14</div>
+                            
+                            <div class="calendar-day">15</div>
+                            <div class="calendar-day">16</div>
+                            <div class="calendar-day">17</div>
+                            <div class="calendar-day">18</div>
+                            <div class="calendar-day">19</div>
+                            <div class="calendar-day">20</div>
+                            <div class="calendar-day">21</div>
+                            
+                            <div class="calendar-day">22</div>
+                            <div class="calendar-day">23</div>
+                            <div class="calendar-day">24</div>
+                            <div class="calendar-day">25</div>
+                            <div class="calendar-day">26</div>
+                            <div class="calendar-day">27</div>
+                            <div class="calendar-day">28</div>
+                            
+                            <div class="calendar-day">29</div>
+                            <div class="calendar-day">30</div>
+                            <div class="calendar-day">31</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+</body>
+</html> 

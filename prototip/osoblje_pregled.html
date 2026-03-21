@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- Autor: Maša Avramović -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osoblje - RezerviŠik</title>
+    <link rel="stylesheet" href="main-styles.css">
+    <script src="main-scripts.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo.png" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                Wizard
+            </div>
+            <div class="user-info">Jelena Marković (Frizerka)</div>
+            <div class="user-info"><button class="btn" onclick="confirmLogout()">Odjavi se</button></div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="staff-grid">
+            <aside class="sidebar">
+                <h3>Moj Panel</h3>
+                <ul class="sidebar-menu">
+                    <li><a href="osoblje_pregled.html">Pregled</a></li>
+                    <li><a href="osoblje_moj_raspored.html">Moj Raspored</a></li>
+                    <li><a href="osoblje_zakazi_termin.html">Zakaži Termin</a></li>
+                    <li><a href="osoblje_kalendar.html">Kalendar</a></li>
+                    <li><a href="osoblje_moj_profil.html">Moj Profil</a></li>
+                </ul>
+            </aside>
+
+            <div class="content">
+                <div id="dashboard" class="section">
+                    <h2>Pregled - Jelena Marković</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Danas Rezervacija</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Završene</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Preostale</div>
+                        </div>
+                    </div>
+
+                    <h3>Današnji Raspored</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-card">
+                            <h4>09:00 - Jovana Marković</h4>
+                            <p>Usluga: Šišanje</p>
+                        </div>
+                        <div class="schedule-card">
+                            <h4>10:30 - Marija Nikolić</h4>
+                            <p>Usluga: Feniranje</p>
+                        </div>
+                        <div class="schedule-card">
+                            <h4>12:00 - Ana Petrović</h4>
+                            <p>Usluga: Šišanje</p>
+                        </div>
+                        <div class="schedule-card">
+                            <h4>14:00 - Stefan Đorđević</h4>
+                            <p>Usluga: Feniranje</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html> 

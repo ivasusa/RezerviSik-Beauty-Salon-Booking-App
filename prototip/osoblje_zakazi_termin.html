@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- Autor: Maša Avramović -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osoblje - RezerviŠik</title>
+    <link rel="stylesheet" href="main-styles.css">
+    <script src="main-scripts.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo.png" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                Wizard
+            </div>
+            <div class="user-info">Jelena Marković (Frizerka)</div>
+            <div class="user-info"><button class="btn" onclick="confirmLogout()">Odjavi se</button></div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="staff-grid">
+            <aside class="sidebar">
+                <h3>Moj Panel</h3>
+                <ul class="sidebar-menu">
+                    <li><a href="osoblje_pregled.html">Pregled</a></li>
+                    <li><a href="osoblje_moj_raspored.html">Moj Raspored</a></li>
+                    <li><a href="osoblje_zakazi_termin.html">Zakaži Termin</a></li>
+                    <li><a href="osoblje_kalendar.html">Kalendar</a></li>
+                    <li><a href="osoblje_moj_profil.html">Moj Profil</a></li>
+                </ul>
+            </aside>
+
+            <div class="content">
+                <div id="book-appointment">
+                    <h2>Zakaži Termin za Klijenta</h2>
+                    <div style="background-color: #f5f1ee; padding: 2rem; border-radius: 8px;">
+                        <form id="staff-booking-form">
+                            <div class="form-group">
+                                <label for="client-name">Ime klijenta:</label>
+                                <input type="text" id="client-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="client-phone">Broj telefona klijenta:</label>
+                                <input type="tel" id="client-phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointment-date">Datum:</label>
+                                <input type="date" id="appointment-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointment-time">Vreme:</label>
+                                <select id="appointment-time" required>
+                                    <option value="">Izaberite vreme</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="09:30">09:30</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="10:30">10:30</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="11:30">11:30</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="13:00">13:00</option>
+                                    <option value="13:30">13:30</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="14:30">14:30</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="15:30">15:30</option>
+                                    <option value="16:00">16:00</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="service-type">Tip usluge:</label>
+                                <select id="service-type" required>
+                                    <option value="">Izaberite uslugu</option>
+                                    <option value="sisanje">Šišanje</option>
+                                    <option value="feniranje">Feniranje</option>
+                                    <option value="manikir">Manikir</option>
+                                    <option value="pedikir">Pedikir</option>
+                                    <option value="bojenje">Bojenje kose</option>
+                                </select>
+                            </div>
+                            <div id="booking-message" class="notification hidden"></div>
+                            <button type="submit" class="btn">Zakaži Termin</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html> 

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<!-- Autor: Iva Susa -->
+{% load static %}
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ salon.name }} – Detalji</title>
+    <link rel="stylesheet" href="{% static 'main-styles.css' %}">
+</head>
+<body>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+            RezerviŠik
+        </div>
+
+        <ul class="nav-links">
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'logout_user' %}">Odjava</a></li>
+            {% else %}
+                <li><a href="{% url 'login_user' %}">Prijava</a></li>
+                <li><a href="{% url 'register_user' %}">Registracija</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+
+<main class="main">
+
+    <h1>{{ salon.name }}</h1>
+    <br>
+
+    <div class="salon-details-box" style="background-color:#edc7c1; padding:2rem; border-radius:10px;">
+
+        <section class="salon-info">
+            <h2>Informacije o salonu</h2>
+            <br>
+            <p><strong>Adresa:</strong> {{ salon.address }}</p>
+            <p><strong>Telefon:</strong> {{ salon.contact }}</p>
+            <p><strong>Radno vreme:</strong> {{ salon.working_hours }}</p>
+            <p><strong>Opis:</strong> {{ salon.description }}</p>
+
+            <div class="rating">
+                <strong>Ocena:</strong>
+                {{ salon.grade|default:"0.0" }}/5
+            </div>
+        </section>
+
+        <hr>
+        <br>
+
+        <section class="salon-services">
+            <h2>Usluge</h2>
+            <br>
+            <ul style="list-style-type: disc; padding-left: 1.5rem;">
+                {% for service in services %}
+                    <li>
+                        <strong>{{ service.name }}</strong> –
+                        {{ service.price }} RSD
+                        ({{ service.duration }} min)
+                    </li>
+                {% empty %}
+                    <li>Nema definisanih usluga</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <br>
+        <hr>
+        <br>
+
+        <!-- ========================= -->
+        <!-- ZAKAZIVANJE -->
+        <!-- ========================= -->
+        <section class="salon-booking">
+            <h2>Zakazivanje</h2>
+            <br>
+
+            {% if user.is_authenticated %}
+
+                <div style="background:#f5f1ee; padding:1.2rem; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.05);">
+                    <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:end;">
+                        <div>
+                            <label><strong>Izaberi uslugu:</strong></label><br>
+                            <select id="serviceSelect" style="padding:8px; border-radius:8px; border:1px solid #d0b8ae;">
+                                {% for service in services %}
+                                    <option value="{{ service.idservice }}">{{ service.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div>
+                            <label><strong>Datum:</strong></label><br>
+                            <input id="dateInput" type="date" style="padding:8px; border-radius:8px; border:1px solid #d0b8ae;">
+                        </div>
+
+                        <div>
+                            <button id="loadSlotsBtn" class="btn" style="padding:10px 14px;">
+                                Prikaži slobodne termine
+                            </button>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:14px;">
+                        <div id="slotsMsg" style="margin-bottom:10px; color:#5b3f35;"></div>
+
+                        <ul id="slotsList" style="list-style-type:none; padding-left:0; margin:0;"></ul>
+
+                        <!-- NOVO: dugme "Zakaži" -->
+                        <div style="margin-top:12px; display:flex; gap:10px;">
+                            <button id="confirmBtn" class="btn" type="button" disabled>
+                                Zakaži
+                            </button>
+                        </div>
+
+                        <div id="bookMsg" style="margin-top:12px; font-weight:600;"></div>
+                    </div>
+                </div>
+
+                <script>
+                function getCookie(name) {
+                    let cookieValue = null;
+                    if (document.cookie && document.cookie !== '') {
+                        const cookies = document.cookie.split(';');
+                        for (let cookie of cookies) {
+                            cookie = cookie.trim();
+                            if (cookie.startsWith(name + '=')) {
+                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                break;
+                            }
+                        }
+                    }
+                    return cookieValue;
+                }
+
+                const csrftoken = getCookie('csrftoken');
+                const salonId = parseInt("{{ salon.salonid|escapejs }}", 10);
+
+                const loadBtn = document.getElementById("loadSlotsBtn");
+                const dateInput = document.getElementById("dateInput");
+                const serviceSelect = document.getElementById("serviceSelect");
+
+                const slotsMsg = document.getElementById("slotsMsg");
+                const slotsList = document.getElementById("slotsList");
+                const bookMsg = document.getElementById("bookMsg");
+                const confirmBtn = document.getElementById("confirmBtn");
+
+                let selected = null; // {date, time, staff_id, staff_name}
+
+                // default: danas
+                (function setDefaultDate(){
+                    const today = new Date();
+                    const yyyy = today.getFullYear();
+                    const mm = String(today.getMonth() + 1).padStart(2, '0');
+                    const dd = String(today.getDate()).padStart(2, '0');
+                    dateInput.value = `${yyyy}-${mm}-${dd}`;
+                })();
+
+                function resetSelection() {
+                    selected = null;
+                    confirmBtn.disabled = true;
+                }
+
+                function loadSlots() {
+                    const date = dateInput.value;
+                    const serviceId = parseInt(serviceSelect.value, 10);
+
+                    slotsMsg.textContent = "";
+                    slotsList.innerHTML = "";
+                    bookMsg.textContent = "";
+                    resetSelection();
+
+                    if (!date) {
+                        slotsMsg.textContent = "Izaberi datum.";
+                        return;
+                    }
+
+                    loadBtn.disabled = true;
+                    slotsMsg.textContent = "Učitavam slobodne termine...";
+
+                    fetch(`/api/client/free-slots/${salonId}/${date}/?service_id=${serviceId}`)
+                        .then(r => r.json())
+                        .then(data => {
+                            slotsList.innerHTML = "";
+
+                            if (data.error) {
+                                slotsMsg.textContent = data.error;
+                                return;
+                            }
+
+                            if (!Array.isArray(data) || data.length === 0) {
+                                slotsMsg.textContent = "Nema slobodnih termina za izabrani datum/uslugu.";
+                                return;
+                            }
+
+                            slotsMsg.textContent = "Klikni na termin da ga selektuješ:";
+
+                            data.forEach(item => {
+                                const li = document.createElement("li");
+                                li.style.marginBottom = "8px";
+
+                                const btn = document.createElement("button");
+                                btn.className = "btn";
+                                btn.type = "button";
+                                btn.textContent = `${item.time} — ${item.staff_name}`;
+                                btn.style.padding = "10px 12px";
+                                btn.style.width = "100%";
+                                btn.style.textAlign = "left";
+
+                                btn.addEventListener("click", () => {
+                                    // skini highlight sa svih
+                                    document.querySelectorAll("#slotsList button").forEach(b => {
+                                        b.style.outline = "none";
+                                    });
+
+                                    // highlight selektovan
+                                    btn.style.outline = "3px solid #5b3f35";
+
+                                    selected = {
+                                        date: date,
+                                        time: item.time,
+                                        staff_id: item.staff_id,
+                                        staff_name: item.staff_name
+                                    };
+
+                                    confirmBtn.disabled = false;
+                                    bookMsg.style.color = "#5b3f35";
+                                    bookMsg.textContent = `Selektovano: ${item.time} — ${item.staff_name}`;
+                                });
+
+                                li.appendChild(btn);
+                                slotsList.appendChild(li);
+                            });
+                        })
+                        .catch(err => {
+                            console.error(err);
+                            slotsMsg.textContent = "Greška pri učitavanju slotova.";
+                        })
+                        .finally(() => {
+                            loadBtn.disabled = false;
+                        });
+                }
+
+                loadBtn.addEventListener("click", loadSlots);
+
+                // kad promeniš uslugu, odmah refresuj slotove
+                serviceSelect.addEventListener("change", () => {
+                    loadSlots();
+                });
+
+                confirmBtn.addEventListener("click", () => {
+                    if (!selected) return;
+
+                    const serviceId = parseInt(serviceSelect.value, 10);
+
+                    confirmBtn.disabled = true;
+                    bookMsg.style.color = "#5b3f35";
+                    bookMsg.textContent = "Zakazujem...";
+
+                    const payload = {
+                        date: selected.date,
+                        time: selected.time,
+                        service_id: serviceId,
+                        staff_id: Number(selected.staff_id),
+                        salon_id: salonId
+                    };
+
+                    fetch("/api/client/book/", {
+                        method: "POST",
+                        credentials: "same-origin",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRFToken": csrftoken
+                        },
+                        body: JSON.stringify(payload)
+                    })
+                    .then(r => r.json())
+                    .then(data => {
+                        if (data.ok) {
+                            window.location.href = "/klijent/moje-rez/";
+                            return;
+                        }
+
+                        confirmBtn.disabled = false;
+                        bookMsg.style.color = "crimson";
+                        bookMsg.textContent = " " + (data.error || "Greška pri zakazivanju");
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        confirmBtn.disabled = false;
+                        bookMsg.style.color = "crimson";
+                        bookMsg.textContent = "Server greška";
+                    });
+                });
+                </script>
+
+            {% else %}
+                <p>Da biste zakazali termin, morate biti ulogovani.</p>
+            {% endif %}
+        </section>
+
+        <br>
+        <hr>
+        <br>
+
+        <section class="salon-reviews">
+            <h2> Recenzije </h2>
+            <br>
+
+            <div id="reviews-container">
+                {% for review in reviews %}
+                    <div class="review-card" style="
+                        background:#f5f1ee;
+                        padding:1.2rem;
+                        margin-bottom:1rem;
+                        border-radius:10px;
+                        box-shadow:0 4px 10px rgba(0,0,0,0.05);
+                    ">
+
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <strong>
+                                {{ review.userid.name }} {{ review.userid.surname }}
+                            </strong>
+                            <div class="rating">
+                                {% for i in "12345" %}
+                                    {% if forloop.counter <= review.rating %}
+                                        <span class="star">★</span>
+                                    {% else %}
+                                        <span class="star empty">★</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        {% if review.comment %}
+                            <p style="margin:0.7rem 0; font-style:italic;">
+                                "{{ review.comment }}"
+                            </p>
+                        {% endif %}
+
+                        <small style="color:#8b6b5f;">
+                            {{ review.createdat|date:"d.m.Y" }}
+                        </small>
+                    </div>
+                {% empty %}
+                    <p>Nema recenzija.</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <div class="back-button" style="margin-top:2rem;">
+            <a href="{% url 'salonViews' %}" class="btn">
+                Nazad na salone
+            </a>
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>

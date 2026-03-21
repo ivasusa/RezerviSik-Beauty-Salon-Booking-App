@@ -1,0 +1,152 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!-- Autor: Iva Šuša -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RezerviŠik - Registracija</title>
+    <link rel="stylesheet" href="{% static 'main-styles.css' %}">
+</head>
+<body>
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="{% static 'logo.png' %}"
+                 alt="RezerviŠik Logo"
+                 style="height: 40px; margin-right: 10px;">
+            <span>RezerviŠik</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Početna</a></li>
+            <li><a href="{% url 'salonViews' %}">Saloni</a></li>
+            <li><a href="{% url 'login_user' %}">Prijava</a></li>
+
+        </ul>
+    </nav>
+</header>
+
+
+    <main class="main">
+        <div class="login-form">
+            <h2>Registracija</h2>
+
+            {% if msg %}
+                <div class="notification" style="color:red;">{{ msg }}</div>
+            {% endif %}
+                <br>
+
+            <div id="user-type-selection" class="form-group">
+                <h3><label>Tip korisnika:</label></h3>
+                <div style="display: flex; gap: 1rem; margin: 1rem 0;">
+                    <button type="button" class="btn" onclick="selectUserType('client')">Klijent</button>
+                    <button type="button" class="btn" onclick="selectUserType('owner')">Vlasnik Salona</button>
+                </div>
+            </div>
+
+            <form id="client-registration" style="display:none;" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="user_type" value="client">
+                <div class="form-group">
+                    <label for="client-name">Ime:</label>
+                    <input type="text" name="name" id="client-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-surname">Prezime:</label>
+                    <input type="text" name="surname" id="client-surname" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-email">Email:</label>
+                    <input type="email" name="email" id="client-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-password">Lozinka (min. 8 karaktera):</label>
+                    <input type="password" name="password" id="client-password" minlength="8" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-phone">Broj telefona:</label>
+                    <input type="tel" name="phone" id="client-phone" required>
+                </div>
+                <button type="submit" class="btn">Registruj se kao Klijent</button>
+                <button type="button" class="btn" onclick="resetRegistration()" style="background-color: #8b6b5f;">Nazad</button>
+            </form>
+
+            <form id="owner-registration" style="display:none;" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="user_type" value="owner">
+
+                <h4>Lični podaci:</h4>
+                <div class="form-group">
+                    <label for="owner-name">Ime:</label>
+                    <input type="text" name="name" id="owner-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner-surname">Prezime:</label>
+                    <input type="text" name="surname" id="owner-surname" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner-email">Email:</label>
+                    <input type="email" name="email" id="owner-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner-password">Lozinka (min. 8 karaktera):</label>
+                    <input type="password" name="password" id="owner-password" minlength="8" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner-phone">Broj telefona:</label>
+                    <input type="tel" name="phone" id="owner-phone" required>
+                </div>
+
+                <h4>Podaci o salonu:</h4>
+                <div class="form-group">
+                    <label for="salon-name">Naziv salona:</label>
+                    <input type="text" name="salon_name" id="salon-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="salon-address">Adresa salona:</label>
+                    <input type="text" name="salon_address" id="salon-address" required>
+                </div>
+                <div class="form-group">
+                    <label for="salon-contact">Kontakt telefon salona:</label>
+                    <input type="tel" name="salon_contact" id="salon-contact" required>
+                </div>
+                <div class="form-group">
+                    <label for="salon-working-hours">Radno vreme (format: 9:00-17:00):</label>
+                    <input type="text" name="salon_working_hours" id="salon-working-hours" placeholder="9:00-17:00" pattern="\d{1,2}:\d{2}-\d{1,2}:\d{2}" required>
+                </div>
+                <div class="form-group">
+                    <label for="salon-description">Opis usluga:</label>
+                    <textarea name="salon_description" id="salon-description" rows="4" required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Registruj salon</button>
+                <button type="button" class="btn" onclick="resetRegistration()" style="background-color: #8b6b5f;">Nazad</button>
+            </form>
+
+
+        </div>
+    </main>
+
+    <script>
+        function selectUserType(type) {
+            const clientForm = document.getElementById('client-registration');
+            const ownerForm = document.getElementById('owner-registration');
+
+            if (type === 'client') {
+                clientForm.style.display = 'block';
+                ownerForm.style.display = 'none';
+            } else if (type === 'owner') {
+                clientForm.style.display = 'none';
+                ownerForm.style.display = 'block';
+            }
+        }
+
+        function resetRegistration() {
+            document.getElementById('client-registration').style.display = 'none';
+            document.getElementById('owner-registration').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="sr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pregled - RezerviŠik</title>
+
+    <link rel="stylesheet" href="{% static 'main-styles.css' %}" />
+    <script src="{% static 'main-scripts.js' %}" defer></script>
+</head>
+
+<body>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="{% static 'logo.png' %}"
+                 alt="RezerviŠik Logo"
+                 style="height:40px; margin-right:10px; vertical-align:middle;" />
+            RezerviŠik
+        </div>
+
+        <ul class="nav-links">
+            <span class="user-info" style="display:flex; align-items:center;">
+                {{ request.user.get_full_name }} (Klijent)
+            </span>
+
+            <li>
+                <div class="user-info">
+                    <form method="get" action="{% url 'salonViews' %}" class="nav-form">
+                        <button class="btn" type="submit">Pretraži salone</button>
+                    </form>
+                </div>
+            </li>
+
+            <li>
+                <div class="user-info">
+                    <form method="post" action="{% url 'logout_user' %}" class="nav-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">Odjavi se</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<main class="main">
+    <div class="client-grid">
+
+        <aside class="sidebar">
+            <h3>Moj Panel</h3>
+            <ul class="sidebar-menu">
+                <li><a href="{% url 'klijent_pregled' %}">Pregled</a></li>
+                <li><a href="{% url 'klijent_moje_rez' %}">Moje rezervacije</a></li>
+                <li><a href="{% url 'klijent_recenzije' %}">Recenzije</a></li>
+                <li><a href="{% url 'klijent_moj_profil' %}">Moj profil</a></li>
+            </ul>
+        </aside>
+
+        <div class="content">
+            <div id="clientDashboard">
+
+                <h2>{{ request.user.get_full_name|default:request.user.username }}</h2>
+
+                <!-- ========================= -->
+                <!-- GOOGLE CALENDAR          -->
+                <!-- ========================= -->
+                <div class="appointment-card" style="margin-bottom: 20px;">
+                    <h3>Google Calendar</h3>
+
+                    {% if google_connected %}
+                        <p style="margin-top: 10px;">
+                            <span style="color: green; font-weight: bold;">●</span>
+                            Povezano sa Google nalogom:
+                            <strong>{{ google_email }}</strong>
+                        </p>
+
+                        <p style="margin-top: 8px; color: #555;">
+                            Novi termini koje zakažete automatski će se dodavati u vaš Google Calendar,
+                            a otkazani termini će biti uklonjeni.
+                        </p>
+
+                        <form method="post" action="{% url 'google_disconnect' %}" style="margin-top: 12px;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-cancel">
+                                Prekini povezivanje
+                            </button>
+                        </form>
+                    {% else %}
+                        <p style="margin-top: 10px; color: #555;">
+                            Povežite svoj Google Calendar kako bi se nova zakazivanja automatski sinhronizovala.
+                        </p>
+
+                        <a href="{% url 'google_connect' %}" class="btn" style="display:inline-block; margin-top:10px;">
+                            Poveži Google Calendar
+                        </a>
+                    {% endif %}
+                </div>
+
+                <!-- ========================= -->
+                <!-- REMINDERS ZA SUTRA        -->
+                <!-- ========================= -->
+                {% for reminder in reminders %}
+                    <div class="notification client-reminder">
+                        <strong>Podsetnik:</strong>
+                        Imate zakazan termin sutra u
+                        {{ reminder.datetime|date:"H:i" }}
+                        u {{ reminder.staffid.salonid.name }}
+                        za uslugu {{ reminder.serviceid.name }}
+                    </div>
+                    {% empty %}
+                    <div class="notification">
+                        Nemate zakazane termine sutra.
+                    </div>
+                {% endfor %}
+
+                <!-- ========================= -->
+                <!-- STATISTIKA               -->
+                <!-- ========================= -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">
+                            {{ active_count }}
+                        </div>
+                        <div class="stat-label">
+                            Aktivne Rezervacije
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================= -->
+                <!-- PREDSTOJEĆI TERMINI      -->
+                <!-- ========================= -->
+                <h3>Predstojeći Termini</h3>
+
+                {% for a in next_two %}
+                    <div class="appointment-card">
+
+                        <h4>
+                            {{ a.datetime|date:"d.m.Y" }}
+                            -
+                            {{ a.datetime|date:"H:i" }}
+                            -
+                            {{ a.staffid.salonid.name }}
+                        </h4>
+
+                        <p>Usluga: {{ a.serviceid.name }}</p>
+
+                        <p>
+                            Status:
+                            <span class="status-upcoming">
+                                Zakazano
+                            </span>
+                        </p>
+
+                        <form method="post"
+                              action="{% url 'client_cancel_appointment' a.appointmentid %}">
+                            {% csrf_token %}
+                            <button class="btn btn-cancel" type="submit">
+                                Otkaži Termin
+                            </button>
+                        </form>
+
+                    </div>
+
+                {% empty %}
+                    <div class="notification">
+                        Trenutno nemate predstojeće termine.
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </div>
+</main>
+
+
+<div id="toast-container" class="toast-container"></div>
+
+{% if messages %}
+<div id="django-messages" style="display:none;">
+    {% for message in messages %}
+        <div data-level="{{ message.tags }}" data-text="{{ message }}"></div>
+    {% endfor %}
+</div>
+{% endif %}
+
+</body>
+</html>

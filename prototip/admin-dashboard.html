@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Autor: Iva Šuša -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregled - Sistem Administrator</title>
+    <link rel="stylesheet" href="main-styles.css">
+    <script src="main-scripts.js" defer></script>
+</head>
+<body>
+   <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo.png" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                RezerviŠik 
+            </div>
+            <div class="user-info">
+                <ul style="display: flex; align-items: center; gap: 10px; list-style: none; margin: 0; padding: 0;">
+                    <button onclick="confirmLogout()" class="btn">Odjavi se</button>
+                    <li>Sistem Administrator</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="admin-grid">
+            <aside class="sidebar">
+                <h3>Meni</h3>
+                <ul class="sidebar-menu">
+                    <li><a href="admin-dashboard.html">Pregled</a></li>
+                    <li><a href="admin-salon-owners.html">Vlasnici Salona</a></li>
+                    <li><a href="admin-all-users.html">Svi Korisnici</a></li>
+                    
+                </ul>
+            </aside>
+
+            <div class="content">
+                <h2>Pregled</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Broj salona</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Broj korisnika koji čeka odobrenje</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">17</div>
+                        <div class="stat-label">Ukupan broj korisnika</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">9</div>
+                        <div class="stat-label">Broj današnjih rezervacija</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

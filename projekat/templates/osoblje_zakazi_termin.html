@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zakaži Termin - RezerviŠik</title>
+
+  <link rel="stylesheet" href="{% static 'main-styles.css' %}" />
+  <link rel="stylesheet" href="{% static 'osoblje-booking.css' %}" />
+
+  <!--<script src="{% static 'main-scripts.js' %}" defer></script>-->
+  <script src="{% static 'osoblje-booking.js' %}" defer></script>
+</head>
+<body>
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <img src="{% static 'logo.png' %}" alt="Logo"
+           style="height:40px; margin-right:10px; vertical-align:middle;" />
+      {{ salon_name }}
+    </div>
+
+    <div class="user-info">{{ staff_name }} ({{ staff_role }})</div>
+
+    <div class="user-info">
+            <form method="post" action="{% url 'logout_user' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn">Odjavi se</button>
+            </form>
+    </div>
+  </nav>
+</header>
+
+<main class="main">
+  <div class="staff-grid">
+    <aside class="sidebar">
+      <h3>Moj Panel</h3>
+      <ul class="sidebar-menu">
+        <li><a href="{% url 'osoblje_pregled' %}">Pregled</a></li>
+        <li><a href="{% url 'osoblje_zakazi_termin' %}">Zakaži Termin</a></li>
+        <li><a href="{% url 'osoblje_kalendar' %}">Kalendar</a></li>
+        <li><a href="{% url 'osoblje_moj_profil' %}">Moj Profil</a></li>
+      </ul>
+    </aside>
+
+    <div class="content">
+            <div id="staff-booking"
+             data-api-free="{% url 'api_staff_free_slots' %}"
+             data-api-book="{% url 'api_staff_book_appointment' %}"
+             data-min-date="{{ min_date }}"
+             data-csrf="{{ csrf_token }}">
+
+        <h2>Zakaži termin za klijenta</h2>
+
+        <div class="card">
+          <form id="staff-booking-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="client-name">Ime i prezime *</label>
+                <input type="text" id="client-name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="client-phone">Telefon *</label>
+                <input type="tel" id="client-phone" required />
+              </div>
+
+              <div class="form-group">
+                <label for="client-email">Email (opciono)</label>
+                <input type="email" id="client-email" placeholder="ako postoji nalog, povezaćemo ga" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="service-id">Usluga *</label>
+                <select id="service-id" required>
+                  <option value="">Izaberite uslugu</option>
+                  {% for s in services %}
+                    <option value="{{ s.idservice }}">{{ s.name }} ({{ s.duration }}min)</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="staff-id">Osoblje *</label>
+                <select id="staff-id" required>
+                  <option value="">Izaberite osoblje</option>
+                  {% for st in staff_list %}
+                    <option value="{{ st.staffid }}">{{ st.userid.name }} {{ st.userid.surname }} ({{ st.position }})</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="appointment-date">Datum *</label>
+                <input type="date" id="appointment-date" min="{{ min_date }}" required />
+              </div>
+
+              <div class="form-group">
+                <label for="appointment-time">Vreme *</label>
+                <select id="appointment-time" required>
+                  <option value="">Izaberite vreme</option>
+                </select>
+                <div class="hint">Slotovi se učitavaju kad izabereš datum + uslugu.</div>
+              </div>
+            </div>
+
+            <div id="booking-message" class="notice hidden"></div>
+
+            <div id="errorMessage" class="notice hidden"></div>
+            <button type="submit" class="btn" id="staff-booking">Zakaži termin</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

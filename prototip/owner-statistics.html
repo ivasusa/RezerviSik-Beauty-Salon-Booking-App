@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Autor: Jovana Simić -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Osoblje - RezerviŠik</title>
+    <link rel="stylesheet" href="main-styles.css" />
+    <script src="main-scripts.js" defer></script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="logo.png" alt="RezerviŠik Logo" style="height:40px; margin-right:10px; vertical-align:middle;" />
+            Wizard
+        </div>
+        <div class="user-info">Sandra Jovanić (Vlasnik)</div>
+        <div class="user-info"><button class="btn" onclick="confirmLogout()">Odjavi se</button></div>
+    </nav>
+</header>
+
+<main class="main">
+    <div class="owner-grid">
+        <aside class="sidebar">
+            <h3>Upravljanje Salonom</h3>
+            <ul class="sidebar-menu">
+                <li><a href="owner-dashboard.html" class="active">Pregled</a></li>
+                <li><a href="owner-salon.html">Moj profil</a></li>
+                <li><a href="owner-services.html">Usluge</a></li>
+                <li><a href="owner-staff.html">Osoblje</a></li>
+                <li><a href="owner-calendar.html">Kalendar</a></li>
+                <li><a href="owner-reviews.html">Recenzije</a></li>
+                <li><a href="owner-statistics.html">Statistika</a></li>
+            </ul>
+        </aside>
+
+        <div class="content">
+            <h2>Statistika Poslovanja - za tekući mesec</h2><br>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">156</div>
+                            <div class="stat-label">Ukupno Rezervacija</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Otkazane Rezervacije</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">15,400</div>
+                            <div class="stat-label">Ukupna Zarada (RSD)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">4.2</div>
+                            <div class="stat-label">Prosečna Ocena</div>
+                        </div>
+                    </div>
+                    </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

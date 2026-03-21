@@ -1,0 +1,185 @@
+{% load static %}
+<!-- Autor: Jovana Simic -->
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Staff - RezerviŠik</title>
+    <link rel="stylesheet" href="{% static 'main-styles.css' %}" />
+    <script src="{% static 'main-scripts.js' %}" defer></script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="RezerviŠik Logo"
+                 style="height:40px; margin-right:10px; vertical-align:middle;" />
+            {{ salon.name }}
+        </div>
+
+        <div class="user-info">
+            {{ owner.userid.name }} {{ owner.userid.surname }} (Vlasnik)
+        </div>
+
+        <div class="user-info">
+            <form method="post" action="{% url 'logout_user' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn">Odjavi se</button>
+            </form>
+        </div>
+
+    </nav>
+</header>
+
+<main class="main">
+    <div class="owner-grid">
+
+        <aside class="sidebar">
+            <h3>Upravljanje Salonom</h3>
+            <ul class="sidebar-menu">
+                <li><a href="{% url 'owner_dashboard' %}">Pregled</a></li>
+                <li><a href="{% url 'owner_salon' %}">Moj profil</a></li>
+                <li><a href="{% url 'owner_services' %}">Usluge</a></li>
+                <li><a href="{% url 'owner_staff' %}">Osoblje</a></li>
+                <li><a href="{% url 'owner_calendar' %}">Kalendar</a></li>
+                <li><a href="{% url 'owner_reviews' %}">Recenzije</a></li>
+                <li><a href="{% url 'owner_statistics' %}">Statistika</a></li>
+            </ul>
+        </aside>
+
+        <div class="content">
+            <h2>Upravljanje osobljem</h2>
+
+            <button class="btn btn-add" type="button" onclick="showAddStaffForm()">
+                Dodaj novog člana osoblja
+            </button>
+
+            <div id="add-staff-form" class="hidden">
+                <h3>Dodaj novog člana osoblja</h3>
+
+                <form id="staff-form" method="post">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="staff-name">Ime</label>
+                        <input type="text" id="staff-name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="staff-surname">Prezime</label>
+                        <input type="text" id="staff-surname" name="surname" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="staff-email">Email</label>
+                        <input type="email" id="staff-email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="staff-password">
+                            Početna lozinka <small>(min 8 karaktera)</small>
+                        </label>
+                        <input type="password" id="staff-password" name="password" minlength="8" required>
+                    </div>
+
+                    <div id="staff-message" class="notification hidden"></div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-add">Kreiraj nalog</button>
+                        <button type="button" class="btn" onclick="hideAddStaffForm()">Otkaži</button>
+                    </div>
+                </form>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Ime i prezime</th>
+                        <th>Email</th>
+                        <th>Akcije</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                {% for s in staff_list %}
+                    <tr>
+                        <td>{{ s.userid.name }} {{ s.userid.surname }}</td>
+                        <td>{{ s.userid.email }}</td>
+                        <td>
+                            <button type="button"
+                                    class="btn btn-delete"
+                                    onclick="deleteStaff({{ s.staffid }})">
+                                Obriši
+                            </button>
+                        </td>
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="3">Nema dodatog osoblja.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+<script>
+/* SHOW/HIDE FORMA */
+function showAddStaffForm() {
+    document.getElementById("add-staff-form").classList.remove("hidden");
+}
+function hideAddStaffForm() {
+    document.getElementById("add-staff-form").classList.add("hidden");
+}
+
+/* DELETE STAFF */
+function deleteStaff(id) {
+    if (!confirm("Da li ste sigurni da želite da obrišete ovaj nalog?")) return;
+
+    fetch(`/owner/staff/delete/${id}/`)
+        .then(res => res.json())
+        .then(data => {
+            alert(data.message);
+            if (data.status === "success") location.reload();
+        });
+}
+
+/* ADD STAFF */
+document.getElementById("staff-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+
+    const data = new FormData();
+    data.append("name", document.getElementById("staff-name").value);
+    data.append("surname", document.getElementById("staff-surname").value);
+    data.append("email", document.getElementById("staff-email").value);
+    data.append("password", document.getElementById("staff-password").value);
+
+    fetch("/owner/staff/add/", {
+        method: "POST",
+        headers: { "X-CSRFToken": csrfToken },
+        body: data
+    })
+        .then(res => res.json())
+        .then(data => {
+            const msg = document.getElementById("staff-message");
+            msg.classList.remove("hidden");
+            msg.innerText = data.message;
+
+            if (data.status === "success") {
+                msg.style.color = "green";
+                setTimeout(() => location.reload(), 1000);
+            } else {
+                msg.style.color = "red";
+            }
+        });
+});
+</script>
+
+</body>
+</html>

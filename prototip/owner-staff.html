@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- Autor: Jovana Simić -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Osoblje - RezerviŠik</title>
+    <link rel="stylesheet" href="main-styles.css" />
+    <script src="main-scripts.js" defer></script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="logo.png" alt="RezerviŠik Logo" style="height:40px; margin-right:10px; vertical-align:middle;" />
+            Wizard
+        </div>
+        <div class="user-info">Sandra Jovanić (Vlasnik)</div>
+        <div class="user-info"><button class="btn" onclick="confirmLogout()">Odjavi se</button></div>
+        
+    </nav>
+</header>
+
+<main class="main">
+    <div class="owner-grid">
+        <aside class="sidebar">
+            <h3>Upravljanje Salonom</h3>
+            <ul class="sidebar-menu">
+                <li><a href="owner-dashboard.html" class="active">Pregled</a></li>
+                <li><a href="owner-salon.html">Moj profil</a></li>
+                <li><a href="owner-services.html">Usluge</a></li>
+                <li><a href="owner-staff.html">Osoblje</a></li>
+                <li><a href="owner-calendar.html">Kalendar</a></li>
+                <li><a href="owner-reviews.html">Recenzije</a></li>
+                <li><a href="owner-statistics.html">Statistika</a></li>
+            </ul>
+        </aside>
+
+        <div class="content">
+            <h2>Upravljanje Osobljem</h2><br />
+            <button class="btn btn-add" onclick="showAddStaffForm()">Dodaj člana osoblja</button>
+
+            <div id="add-staff-form" class="hidden">
+                <h3>Dodaj novog člana osoblja</h3><br />
+                <form id="staff-form">
+                    <div class="form-group">
+                        <label for="staff-name">Ime:</label>
+                        <input type="text" id="staff-name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="staff-surname">Prezime:</label>
+                        <input type="text" id="staff-surname" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="staff-email">Email:</label>
+                        <input type="email" id="staff-email" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="staff-password">Početna lozinka (min. 8 karaktera):</label>
+                        <input type="password" id="staff-password" minlength="8" required />
+                    </div>
+                    <div id="staff-message" class="notification hidden"></div>
+                    <button type="submit" class="btn btn-add">Kreiraj Nalog</button>
+                    <button type="button" class="btn" onclick="hideAddStaffForm()">Otkaži</button>
+                </form>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Ime i Prezime</th>
+                        <th>Email</th>
+                        <th>Akcije</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jelena Marković</td>
+                        <td>jelena@salonwizard.com</td>
+                        <td>
+                            <button class="btn btn-delete" onclick="confirmDeleteStaff('Jelena Marković')">Obriši</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ana Petrović</td>
+                        <td>ana@salonwizard.com</td>
+                        <td>
+                            <button class="btn btn-delete" onclick="confirmDeleteStaff('Ana Petrović')">Obriši</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Milan Jovanović</td>
+                        <td>milan@salonwizard.com</td>
+                        <td>
+                            <button class="btn btn-delete">Obriši</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+</body>
+</html>

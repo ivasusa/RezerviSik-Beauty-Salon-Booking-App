@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="sr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Moje rezervacije - RezerviŠik</title>
+
+    <link rel="stylesheet" href="{% static 'main-styles.css' %}" />
+    <script src="{% static 'main-scripts.js' %}" defer></script>
+</head>
+
+<body>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="{% static 'logo.png' %}"
+                 alt="RezerviŠik Logo"
+                 style="height:40px; margin-right:10px; vertical-align:middle;" />
+            RezerviŠik
+        </div>
+
+        <ul class="nav-links">
+            <span class="user-info" style="display:flex; align-items:center;">
+                {{ request.user.get_full_name }} (Klijent)
+            </span>
+
+            <li>
+                <div class="user-info">
+                    <form method="get" action="{% url 'salonViews' %}" class="nav-form">
+                        <button class="btn" type="submit">Pretraži salone</button>
+                    </form>
+                </div>
+            </li>
+
+            <li>
+                <div class="user-info">
+                    <form method="post" action="{% url 'logout_user' %}" class="nav-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">Odjavi se</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<main class="main">
+    <div class="client-grid">
+
+        <aside class="sidebar">
+            <h3>Moj Panel</h3>
+            <ul class="sidebar-menu">
+                <li><a href="{% url 'klijent_pregled' %}">Pregled</a></li>
+                <li><a href="{% url 'klijent_moje_rez' %}">Moje rezervacije</a></li>
+                <li><a href="{% url 'klijent_recenzije' %}">Recenzije</a></li>
+                <li><a href="{% url 'klijent_moj_profil' %}">Moj profil</a></li>
+            </ul>
+        </aside>
+
+
+        <div class="content">
+            <div id="appointments">
+
+                <h2>Moje Rezervacije</h2>
+
+                <!-- ========================= -->
+                <!-- AKTIVNE (BUDUĆE)          -->
+                <!-- ========================= -->
+                <h3 style="margin-top:16px;">Aktivne rezervacije</h3>
+
+                {% if upcoming %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Datum</th>
+                                <th>Vreme</th>
+                                <th>Salon</th>
+                                <th>Usluga</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for a in upcoming %}
+                                <tr>
+                                    <td>{{ a.datetime|date:"d.m.Y" }}</td>
+                                    <td>{{ a.datetime|date:"H:i" }}</td>
+                                    <td>{{ a.staffid.salonid.name }}</td>
+                                    <td>{{ a.serviceid.name }}</td>
+
+                                    <td>
+                                        <form method="post"
+                                              action="{% url 'client_cancel_appointment' a.appointmentid %}">
+                                            {% csrf_token %}
+                                            <button class="btn btn-cancel" type="submit">
+                                                Otkaži
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                {% else %}
+                    <div style="margin-top:10px; padding:14px; background:#f5f1ee; border-radius:10px;">
+                        Trenutno nemate nijednu aktivnu rezervaciju.
+                    </div>
+                {% endif %}
+
+
+                <!-- ========================= -->
+                <!-- PROŠLE                     -->
+                <!-- ========================= -->
+                <h3 style="margin-top:22px;">Prošle rezervacije</h3>
+
+                {% if past %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Datum</th>
+                                <th>Vreme</th>
+                                <th>Salon</th>
+                                <th>Usluga</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for a in past %}
+                                <tr>
+                                    <td>{{ a.datetime|date:"d.m.Y" }}</td>
+                                    <td>{{ a.datetime|date:"H:i" }}</td>
+                                    <td>{{ a.staffid.salonid.name }}</td>
+                                    <td>{{ a.serviceid.name }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                {% else %}
+                    <div style="margin-top:10px; padding:14px; background:#f5f1ee; border-radius:10px;">
+                        Nemate prošlih rezervacija.
+                    </div>
+                {% endif %}
+
+
+                <!-- ========================= -->
+                <!-- OTKAZANE                   -->
+                <!-- ========================= -->
+                <h3 style="margin-top:22px;">Otkazane rezervacije</h3>
+
+                {% if canceled %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Datum</th>
+                                <th>Vreme</th>
+                                <th>Salon</th>
+                                <th>Usluga</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for a in canceled %}
+                                <tr>
+                                    <td>{{ a.datetime|date:"d.m.Y" }}</td>
+                                    <td>{{ a.datetime|date:"H:i" }}</td>
+                                    <td>{{ a.staffid.salonid.name }}</td>
+                                    <td>{{ a.serviceid.name }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                {% else %}
+                    <div style="margin-top:10px; padding:14px; background:#f5f1ee; border-radius:10px;">
+                        Nemate otkazanih rezervacija.
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+
+    </div>
+</main>
+
+
+<div id="toast-container" class="toast-container"></div>
+
+{% if messages %}
+    <div id="django-messages" style="display:none;">
+        {% for message in messages %}
+            <div data-level="{{ message.tags }}" data-text="{{ message }}"></div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+</body>
+</html>

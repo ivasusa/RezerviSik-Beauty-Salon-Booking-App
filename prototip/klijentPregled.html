@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- Autor: Sandra Bubanja -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="main-styles.css">
+        <script src="main-scripts.js"></script>
+    </head>
+    <body>
+        <header class="header">
+            <nav class="nav">
+<div class="logo">
+                <img src="logo.png" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                RezerviŠik
+            </div><div class="user-info"><button class="btn" onclick="window.location.href='salons.html'">
+        Pretraži salone
+    </button></div>
+                    <div class="user-info">Jovana Marković (Klijent)</div>
+                <div class="user-info"><button class="btn" onclick="confirmLogout()">Odjavi se</button></div>
+            </nav>
+        </header>
+        <main class="main">
+            <div class="client-grid">
+                <aside class="sidebar">
+                    <h3>Moj Panel</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="klijentPregled.html">Pregled</a></li>
+                        <li><a href="klijentMojeRez.html">Moje rezervacije</a></li>
+                        <li><a href="klijentRec.html">Recenzije</a></li>
+                        <li><a href="klijentMojProfil.html">Moj profil</a></li>
+                    </ul>
+                </aside>
+                <div class="content">
+                    <div id="clientDashboard">
+                                    <h2>Jovana Marković</h2>
+                                    
+                                    <div class="notification">
+                                        <strong>Podsetnik:</strong> Imate zakazan termin sutra u 10:00 u Salon Lepota
+                                    </div>
+                                    
+                                    <div class="stats-grid">
+                                        <div class="stat-card">
+                                            <div class="stat-number">3</div>
+                                            <div class="stat-label">Aktivne Rezervacije</div>
+                                        </div>
+                                    </div>
+                
+                                    <h3>Predstojeći Termini</h3>
+                                    
+                                    <div class="appointment-card">
+                                        <h4>16.12.2024 - 10:00 - Salon Lepota</h4>
+                                        <p>Usluga: Šišanje</p>
+                                        <p>Status: <span class="status-upcoming">Zakazano</span></p>
+                                        <button class="btn btn-cancel">Otkaži Termin</button>
+                                    </div>
+                
+                                    <div class="appointment-card">
+                                        <h4>20.12.2024 - 14:00 - Beauty Studio</h4>
+                                        <p>Usluga: Manikir</p>
+                                        <p>Status: <span class="status-upcoming">Zakazano</span></p>
+                                        <button class="btn btn-cancel">Otkaži Termin</button>
+                                    </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

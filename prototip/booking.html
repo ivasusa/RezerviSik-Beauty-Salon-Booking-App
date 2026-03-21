@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- Autor: Iva Šuša -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RezerviŠik - Zakazivanje Termina</title>
+    <link rel="stylesheet" href="main-styles.css">
+    <script src="main-scripts.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo.png" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                RezerviŠik
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Početna</a></li>
+                <li><a href="salons.html">Saloni</a></li>
+                <li><a href="login.html">Prijava</a></li>
+                <li><a href="register.html">Registracija</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="login-form">
+            <h2>Zakazivanje Termina</h2>
+            <form>
+                <div class="form-group">
+                    <label for="service">Usluga:</label>
+                    <select id="service">
+                        <option value="haircut">Šišanje</option>
+                        <option value="styling">Feniranje</option>
+                        <option value="manicure">Manikir</option>
+                        <option value="pedicure">Pedikir</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Datum:</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Vreme:</label>
+                    <select id="time">
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                    </select>
+                    <!-- treba centrirati lepo -->
+                </div>
+                <button type="submit" class="btn">Potvrdi Rezervaciju</button>
+                <a href="salons.html" class="btn" style="background-color: #8b6b5f;">Saloni</a>
+            </form>
+        </div>
+    </main>
+
+
+</body>
+</html>

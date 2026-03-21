@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- Autor: Iva Šuša -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RezerviŠik - Wellness Center Relax</title>
+    <link rel="stylesheet" href="main-styles.css">
+    <script src="main-scripts.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo.png" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                RezerviŠik
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Početna</a></li>
+                <li><a href="salons.html">Saloni</a></li>
+                <li><a href="login.html">Prijava</a></li>
+                <li><a href="register.html">Registracija</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div id="salon-detail-content">
+            <h2>Wellness Center Relax - Detalji</h2>
+            <div style="background-color: #edc7c1; padding: 2rem; border-radius: 10px; margin: 2rem 0;">
+                <img src="wellness-center.jpg" alt="Wellness Center Relax" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                    <div>
+                        <h3>Informacije o salonu:</h3>
+                        <p><strong>Adresa:</strong> Vračar Historical 22, Beograd</p>
+                        <p><strong>Telefon:</strong> +381 11 555 7890</p>
+                        <p><strong>Opis:</strong> Centar za wellness i relaksaciju sa širokim spektrom masaža.</p>
+                        <div class="rating">
+                            <strong>Ocena:</strong>
+                            <span class="stars">★★★★☆</span>
+                            <span>(4.2/5)</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Usluge i cene:</h3>
+                        <ul style="list-style: none; margin: 1rem 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #5a4d47;">
+                                <strong>Relax masaža</strong> - 1500 RSD<br>
+                                <small>Trajanje: 60 min | Izvršava: Nikola Jovanović</small>
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #5a4d47;">
+                                <strong>Sportska masaža</strong> - 1800 RSD<br>
+                                <small>Trajanje: 75 min | Izvršava: Nikola Jovanović</small>
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #5a4d47;">
+                                <strong>Spa tretman</strong> - 2500 RSD<br>
+                                <small>Trajanje: 120 min | Izvršava: Nikola Jovanović</small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Recenzije klijenata:</h3>
+                <div style="margin: 1rem 0;">
+                    <div style="background-color: #f5f1ee; padding: 1rem; border-radius: 8px; margin: 0.5rem 0;">
+                        <div class="rating">
+                            <strong>Miloš T.</strong>
+                            <span class="stars">★★★★☆</span>
+                        </div>
+                        <p style="margin: 0.5rem 0;">Dobra masaža, opuštajuća atmosfera.</p>
+                    </div>
+                    <div style="background-color: #f5f1ee; padding: 1rem; border-radius: 8px; margin: 0.5rem 0;">
+                        <div class="rating">
+                            <strong>Jelena S.</strong>
+                            <span class="stars">★★★★☆</span>
+                        </div>
+                        <p style="margin: 0.5rem 0;">Kvalitetni tretmani, preporučujem.</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="booking.html?salon=wellness-center" class="btn" style="margin-right: 1rem;">Rezerviši termin</a>
+                    <a href="salons.html" class="btn btn-secondary">Nazad na salone</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

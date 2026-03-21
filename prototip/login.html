@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- Autor: Iva Šuša -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RezerviŠik - Prijava</title>
+    <link rel="stylesheet" href="main-styles.css">
+    <script src="main-scripts.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo.png" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                RezerviŠik
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Početna stranica</a></li>
+                <li><a href="salons.html">Saloni</a></li>
+                <li><a href="login.html">Prijava</a></li>
+                <li><a href="register.html">Registracija</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="login-form">
+            <h2>Prijava</h2>
+            <form>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Lozinka:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <!-- nacentriraj lepo -->
+                <button type="submit" class="btn">Prijavi se</button>
+            </form>
+            <p style="margin-top: 1rem; text-align: center;">
+                 <a href="register.html" style="color: #5a4d47;">Registrujte se</a>
+            </p>
+        </div>
+    </main>
+</body>
+</html>

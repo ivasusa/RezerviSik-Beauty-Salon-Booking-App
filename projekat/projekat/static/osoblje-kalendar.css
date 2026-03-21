@@ -1,0 +1,124 @@
+/*Masa Avramovic*/
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.calendar-cell.header {
+  text-align: center;
+  font-weight: 600;
+  opacity: 0.85;
+  padding: 6px 0;
+}
+
+.calendar-cell.day {
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  height: 56px;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.05s ease, box-shadow 0.15s ease;
+}
+
+.calendar-cell.day:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.day-number {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.calendar-cell.day.muted {
+  opacity: 0.35;
+}
+
+.calendar-cell.day.has-appts {
+  border: 2px solid #2e7d32;
+}
+
+.calendar-cell.day.selected {
+  outline: 3px solid #1976d2;
+  outline-offset: 2px;
+}
+
+.day-details-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.selected-date {
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.loading, .empty, .calendar-error {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  background: #fff;
+}
+
+/* kartice termina */
+.schedule-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.schedule-card {
+  padding: 12px;
+  border: 1px solid #e6e6e6;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.schedule-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.schedule-time {
+  font-weight: 700;
+}
+
+.schedule-status {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  opacity: 0.9;
+}
+
+.schedule-service {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.schedule-client {
+  opacity: 0.9;
+}
+
+.cancel-btn{
+  margin-top:8px;
+  padding:6px 10px;
+  border:none;
+  border-radius:8px;
+  background:#c62828;
+  color:white;
+  cursor:pointer;
+}
+
+.cancel-btn:hover{
+  background:#b71c1c;
+}

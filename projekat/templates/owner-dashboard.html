@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- Autor: Jovana Simic -->
+
+{% load static %}
+<html lang="sr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pregled - RezerviŠik</title>
+    <link rel="stylesheet" href="{% static 'main-styles.css' %}" />
+    <script src="{% static 'main-scripts.js' %}" defer></script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="RezerviŠik Logo"
+                 style="height:40px; margin-right:10px; vertical-align:middle;" />
+            {{ salon.name }}
+        </div>
+
+        <div class="user-info">
+            {{ owner.userid.name }} {{ owner.userid.surname }} (Vlasnik)
+        </div>
+
+        <div class="user-info">
+            <form method="post" action="{% url 'logout_user' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn">Odjavi se</button>
+            </form>
+        </div>
+
+    </nav>
+</header>
+
+<main class="main">
+    <div class="owner-grid">
+        <aside class="sidebar">
+            <h3>Upravljanje Salonom</h3>
+            <ul class="sidebar-menu">
+                <li><a href="{% url 'owner_dashboard' %}" class="active">Pregled</a></li>
+                <li><a href="{% url 'owner_salon' %}">Moj profil</a></li>
+                <li><a href="{% url 'owner_services' %}">Usluge</a></li>
+                <li><a href="{% url 'owner_staff' %}">Osoblje</a></li>
+                <li><a href="{% url 'owner_calendar' %}">Kalendar</a></li>
+                <li><a href="{% url 'owner_reviews' %}">Recenzije</a></li>
+                <li><a href="{% url 'owner_statistics' %}">Statistika</a></li>
+            </ul>
+        </aside>
+
+        <div class="content">
+            <h2>Pregled </h2><br /><br />
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">{{ reservations_today }}</div>
+                    <div class="stat-label"> Rezervacije u danu</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">{{ active_services }}</div>
+                    <div class="stat-label">Aktivne Usluge</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">{{ employees_count }}</div>
+                    <div class="stat-label">Zaposleni</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">{{ monthly_earnings }}</div>
+                    <div class="stat-label">Mesecna Zarada (RSD)</div>
+                </div>
+
+                <button id="sendRemindersBtn" class="reminder-btn">
+                     📩 Pošalji dnevne podsetnike
+                </button>
+                <div id="reminderResult" class="reminder-result"></div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
+
+<script>
+const btn = document.getElementById("sendRemindersBtn");
+const result = document.getElementById("reminderResult");
+
+btn.onclick = function(){
+
+    btn.innerText = "Slanje...";
+    btn.disabled = true;
+
+    fetch("/owner/send-reminders/")
+    .then(response => response.json())
+    .then(data => {
+
+        result.innerText = data.message;
+
+        btn.innerText = "✔ Poslato";
+        btn.style.backgroundColor = "#6c757d";
+
+    })
+    .catch(() => {
+        result.innerText = "Greška pri slanju.";
+        btn.disabled = false;
+        btn.innerText = "📩 Pošalji dnevne podsetnike";
+    });
+
+}
+</script>

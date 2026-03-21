@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="sr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recenzije - RezerviŠik</title>
+    <link rel="stylesheet" href="{% static 'main-styles.css' %}" />
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="RezerviŠik Logo"
+                 style="height:40px; margin-right:10px; vertical-align:middle;" />
+            RezerviŠik
+        </div>
+
+        <ul class="nav-links">
+            <span class="user-info" style="display: flex; align-items: center;" >{{ request.user.get_full_name }} (Klijent)</span>
+
+        <li><div class="user-info">
+        <form method="get" action="{% url 'salonViews' %}" class="nav-form">
+                <button class ="btn" type="submit">Pretraži salone</button>
+            </form>
+        </div></li>
+
+        <li><div class="user-info"  >
+            <form method="post" action="{% url 'logout_user' %}"class="nav-form">
+                {% csrf_token %}
+                <button type="submit" class="btn" >Odjavi se</button>
+            </form>
+        </div></li></ul>
+    </nav>
+</header>
+
+<main class="main">
+    <div class="client-grid">
+        <aside class="sidebar">
+            <h3>Moj Panel</h3>
+            <ul class="sidebar-menu">
+                <li><a href="{% url 'klijent_pregled' %}">Pregled</a></li>
+                <li><a href="{% url 'klijent_moje_rez' %}">Moje rezervacije</a></li>
+                <li><a href="{% url 'klijent_recenzije' %}">Recenzije</a></li>
+                <li><a href="{% url 'klijent_moj_profil' %}">Moj profil</a></li>
+            </ul>
+        </aside>
+
+        <div class="content">
+            <div id="reviews">
+                <h2>Moje recenzije</h2>
+                <br>
+                <div style="background-color: #f5f1ee; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                    <h3>Dodaj Recenziju</h3>
+                        <br>
+                    <form id="review-form" method="POST" action="{% url 'dodaj_recenziju' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="review-salon">Salon:</label>
+                            <select id="review-salon" name="salon_id" required>
+                                <option value="">Izaberite salon</option>
+                                {% for salon in salons %}
+                                    <option value="{{ salon.salonid }}">{{ salon.name }}</option>
+                                {% empty %}
+                                    <option value="">Nemate termine za recenziju</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="review-rating">Ocena (1-5):</label>
+                            <div class="rating-input" style="display: flex; gap: 0.5rem; margin: 0.5rem 0;">
+                                <button type="button" class="star-btn" data-rating="1" onclick="setRating(1)">★</button>
+                                <button type="button" class="star-btn" data-rating="2" onclick="setRating(2)">★</button>
+                                <button type="button" class="star-btn" data-rating="3" onclick="setRating(3)">★</button>
+                                <button type="button" class="star-btn" data-rating="4" onclick="setRating(4)">★</button>
+                                <button type="button" class="star-btn" data-rating="5" onclick="setRating(5)">★</button>
+                            </div>
+                            <input type="hidden" id="review-rating" name="rating" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="review-comment">Komentar:</label>
+                            <textarea id="review-comment" name="comment" rows="4" placeholder="Podelite vaše iskustvo..." required></textarea>
+                        </div>
+
+                        <div id="review-message" class="notification hidden"></div>
+                <button type="submit" class="btn" >Objavi recenziju</button>
+                    </form>
+                </div>
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="notification {{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+
+                <div>
+                    {% for review in reviews %}
+                        <div class="review-card" style="background:#f5f1ee; padding:1rem; margin:0.5rem 0; border-radius:6px;">
+                            <strong>{{ review.salonid.name }}</strong> - Ocena: {{ review.rating }}/5
+                            {% if review.comment %}
+                                <p>{{ review.comment }}</p>
+                            {% endif %}
+                        </div>
+                    {% empty %}
+                        <p>Nema recenzija.</p>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    let currentRating = 0;
+    function setRating(r) {
+        currentRating = r;
+        document.getElementById('review-rating').value = r;
+        document.querySelectorAll('.star-btn').forEach((btn, i) => {
+            btn.style.color = (i < r) ? '#ffc107' : '#ccc';
+        });
+    }
+</script>
+
+</body>
+</html>

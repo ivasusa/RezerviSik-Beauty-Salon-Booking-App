@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Autor: Iva Šuša -->
+{% load static %}
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RezerviŠik - Početna</title>
+    <link rel="stylesheet" href="{% static 'main-styles.css' %}">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+    <img src="{% static 'logo.png' %}" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+    RezerviŠik
+    {% if request.user.is_authenticated %}
+        {% if request.user.user_type == 'client' %}
+            <span>Klijent: {{ request.user.name }} {{ request.user.surname }}</span>
+        {% elif request.user.user_type == 'owner' %}
+            <span>Vlasnik salona: {{ request.user.name }} {{ request.user.surname }}</span>
+        {% elif request.user.user_type == 'staff' %}
+            <span>Osoblje: {{ request.user.name }} {{ request.user.surname }}</span>
+        {% endif %}
+    {% endif %}
+</div>
+            <ul class="nav-links">
+<a href="{% url 'login_user' %}">Prijava</a>
+    {% if not request.user.is_authenticated %}
+        <li><a href="{% url 'register_user' %}">Registracija</a></li>
+    {% endif %}
+</ul>
+
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="hero">
+            <h1>Dobrodošli u RezerviŠik</h1>
+            <p>Pomažemo vam da jednostavno zakažete termine u estetskim salonima</p>
+            <a href="{%url 'salonViews'%}" class="btn">Pogledaj salone</a>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>Online Rezervacija</h3>
+                <p>Nikad nije bilo lakše rezervisati tretman</p>
+            </div>
+            <div class="feature-card">
+                <h3>Automatske Notifikacije</h3>
+                <p>Više nikada nećete propustiti priliku da zablistate</p>
+            </div>
+            <div class="feature-card">
+                <h3>Pregled Usluga</h3>
+                <p>Sve na jednom mestu</p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

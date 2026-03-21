@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- Autor: Jovana Simić -->
+<html lang="sr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pregled - RezerviŠik</title>
+    <link rel="stylesheet" href="main-styles.css" />
+    <script src="main-scripts.js" defer></script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="logo.png" alt="RezerviŠik Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;" />
+            Wizard
+        </div>
+        <div class="user-info">Sandra Jovanić (Vlasnik)</div>
+        <div class="user-info"><button class="btn" onclick="confirmLogout()">Odjavi se</button></div>
+    </nav>
+</header>
+
+<main class="main">
+    <div class="owner-grid">
+        <aside class="sidebar">
+            <h3>Upravljanje Salonom</h3>
+            <ul class="sidebar-menu">
+                <li><a href="owner-dashboard.html" class="active">Pregled</a></li>
+                <li><a href="owner-salon.html">Moj profil</a></li>
+                <li><a href="owner-services.html">Usluge</a></li>
+                <li><a href="owner-staff.html">Osoblje</a></li>
+                <li><a href="owner-calendar.html">Kalendar</a></li>
+                <li><a href="owner-reviews.html">Recenzije</a></li>
+                <li><a href="owner-statistics.html">Statistika</a></li>
+            </ul>
+        </aside>
+
+        <div class="content">
+            <h2>Kalendar Rezervacija</h2>
+                    <div class="calendar">
+                        <div class="calendar-header">
+                            <button class="btn">← Prethodni </button>
+                            <h3>Avgust 2025</h3>
+                            <button class="btn">Sledeći →</button>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="calendar-day">Pon</div>
+                            <div class="calendar-day">Uto</div>
+                            <div class="calendar-day">Sre</div>
+                            <div class="calendar-day">Čet</div>
+                            <div class="calendar-day">Pet</div>
+                            <div class="calendar-day">Sub</div>
+                            <div class="calendar-day">Ned</div>
+                            
+                            <div class="calendar-day">1</div>
+                            <div class="calendar-day">2</div>
+                            <div class="calendar-day">3</div>
+                            <div class="calendar-day">4</div>
+                            <div class="calendar-day">5</div>
+                            <div class="calendar-day">6</div>
+                            <div class="calendar-day">7</div>
+                            
+                            <div class="calendar-day">8</div>
+                            <div class="calendar-day">9</div>
+                            <div class="calendar-day">10</div>
+                            <div class="calendar-day">11</div>
+                            <div class="calendar-day">12</div>
+                            <div class="calendar-day">13</div>
+                            <div class="calendar-day">14</div>
+                            
+                            <div class="calendar-day booked">15</div>
+                            <div class="calendar-day booked">16</div>
+                            <div class="calendar-day available">17</div>
+                            <div class="calendar-day available">18</div>
+                            <div class="calendar-day available">19</div>
+                            <div class="calendar-day available">20</div>
+                            <div class="calendar-day available">21</div>
+                            
+                            <div class="calendar-day available">22</div>
+                            <div class="calendar-day available">23</div>
+                            <div class="calendar-day available">24</div>
+                            <div class="calendar-day available">25</div>
+                            <div class="calendar-day available">26</div>
+                            <div class="calendar-day available">27</div>
+                            <div class="calendar-day available">28</div>
+                            
+                            <div class="calendar-day available">29</div>
+                            <div class="calendar-day available">30</div>
+                            <div class="calendar-day available">31</div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

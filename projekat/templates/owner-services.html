@@ -1,0 +1,128 @@
+{% load static %}
+<!-- Autor: Jovana Simic -->
+
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Usluge - RezerviŠik</title>
+    <link rel="stylesheet" href="{% static 'main-styles.css' %}" />
+    <script src="{% static 'main-scripts.js' %}" defer></script>
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="RezerviŠik Logo"
+                 style="height:40px; margin-right:10px; vertical-align:middle;" />
+            {{ salon.name }}
+        </div>
+
+        <div class="user-info">
+            {{ owner.userid.name }} {{ owner.userid.surname }} (Vlasnik)
+        </div>
+
+        <div class="user-info">
+            <form method="post" action="{% url 'logout_user' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn">Odjavi se</button>
+            </form>
+        </div>
+
+    </nav>
+</header>
+
+<main class="main">
+    <div class="owner-grid">
+        <aside class="sidebar">
+            <h3>Upravljanje Salonom</h3>
+            <ul class="sidebar-menu">
+                <li><a href="{% url 'owner_dashboard' %}">Pregled</a></li>
+                <li><a href="{% url 'owner_salon' %}">Moj profil</a></li>
+                <li><a href="{% url 'owner_services' %}">Usluge</a></li>
+                <li><a href="{% url 'owner_staff' %}">Osoblje</a></li>
+                <li><a href="{% url 'owner_calendar' %}">Kalendar</a></li>
+                <li><a href="{% url 'owner_reviews' %}">Recenzije</a></li>
+                <li><a href="{% url 'owner_statistics' %}">Statistika</a></li>
+            </ul>
+        </aside>
+
+        <div class="content">
+            <h2>Upravljanje Uslugama</h2><br />
+            <button class="btn btn-add" id="showAddServiceBtn" onclick="showAddServiceForm()">Dodaj Novu Uslugu</button><br />
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Naziv Usluge</th>
+                        <th>Kategorija</th>
+                        <th>Trajanje</th>
+                        <th>Cena (RSD)</th>
+                        <th>Akcije</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in services %}
+                        <tr>
+                            <td>{{ s.name }}</td>
+                            <td>{{ s.category }}</td>
+                            <td>{{ s.duration }} min</td>
+                            <td>{{ s.price }}</td>
+                            <td>
+                                <form method="post"
+                                      action="{% url 'owner_service_delete' s.idservice %}"
+                                      style="display:inline;"
+                                      onsubmit="return confirm('Da li ste sigurni da želite da obrišete ovu uslugu?');">
+                                    {% csrf_token %}
+                                    <button class="btn btn-delete" id="deleteUslugaBtn_{{ s.idservice }}" type="submit">Obriši</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5">Nema usluga u bazi.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div id="add-service-form" class="{% if form.errors %}{% else %}hidden{% endif %}">
+                <br><h3>Dodaj Novu Uslugu</h3><br />
+                <form method="post" action="{% url 'owner_services' %}">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="{{ form.name.id_for_label }}">Naziv usluge:</label>
+                        {{ form.name }}
+                        {{ form.name.errors }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.category.id_for_label }}">Kategorija:</label>
+                        {{ form.category }}
+                        {{ form.category.errors }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.duration.id_for_label }}">Trajanje (minuti):</label>
+                        {{ form.duration }}
+                        {{ form.duration.errors }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.price.id_for_label }}">Cena (RSD):</label>
+                        {{ form.price }}
+                        {{ form.price.errors }}
+                    </div>
+
+                    <button type="submit" class="btn btn-add" id="dodajUsluguBtn">Dodaj Uslugu</button>
+                    <button type="button" class="btn" onclick="hideAddServiceForm()">Otkaži</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

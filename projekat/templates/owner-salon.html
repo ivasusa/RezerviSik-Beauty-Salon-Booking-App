@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Autor: Jovana Simic -->
+
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <title>Moj profil – RezerviŠik</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'main-styles.css' %}">
+</head>
+
+<body>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="RezerviŠik Logo"
+                 style="height:40px; margin-right:10px; vertical-align:middle;" />
+            {{ salon.name }}
+        </div>
+
+        <div class="user-info">
+            {{ owner.userid.name }} {{ owner.userid.surname }} (Vlasnik)
+        </div>
+
+        <div class="user-info">
+            <form method="post" action="{% url 'logout_user' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn">Odjavi se</button>
+            </form>
+        </div>
+
+    </nav>
+</header>
+
+<main class="main">
+    <div class="owner-grid">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <h3>Upravljanje salonom</h3>
+            <ul class="sidebar-menu">
+                <li><a href="{% url 'owner_dashboard' %}">Pregled</a></li>
+                <li><a href="{% url 'owner_salon' %}" class="active">Moj profil</a></li>
+                <li><a href="{% url 'owner_services' %}">Usluge</a></li>
+                <li><a href="{% url 'owner_staff' %}">Osoblje</a></li>
+                <li><a href="{% url 'owner_calendar' %}">Kalendar</a></li>
+                <li><a href="{% url 'owner_reviews' %}">Recenzije</a></li>
+                <li><a href="{% url 'owner_statistics' %}">Statistika</a></li>
+            </ul>
+        </aside>
+
+        <!-- CONTENT -->
+        <div class="content">
+            <h2>Moj profil</h2>
+
+            <form method="post" class="profile-form">
+                {% csrf_token %}
+
+                <!-- VLASNIK -->
+                <h3>Podaci o vlasniku</h3>
+
+                <div class="form-group">
+                    <label for="{{ owner_form.full_name.id_for_label }}">Ime i prezime</label>
+                    {{ owner_form.full_name }}
+                    {{ owner_form.full_name.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ owner_form.email.id_for_label }}">Email</label>
+                    {{ owner_form.email }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ owner_form.phone.id_for_label }}">Telefon</label>
+                    {{ owner_form.phone }}
+                    {{ owner_form.phone.errors }}
+                </div>
+
+                <hr>
+
+                <!-- SALON -->
+                <h3>Podaci o salonu</h3>
+
+                <div class="form-group">
+                    <label for="{{ salon_form.name.id_for_label }}">Naziv salona</label>
+                    {{ salon_form.name }}
+                    {{ salon_form.name.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ salon_form.address.id_for_label }}">Adresa</label>
+                    {{ salon_form.address }}
+                    {{ salon_form.address.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ salon_form.contact.id_for_label }}">Kontakt telefon</label>
+                    {{ salon_form.contact }}
+                    {{ salon_form.contact.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ salon_form.working_hours.id_for_label }}">Radno vreme</label>
+                    {{ salon_form.working_hours }}
+                    {{ salon_form.working_hours.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ salon_form.description.id_for_label }}">Opis salona</label>
+                    {{ salon_form.description }}
+                </div>
+
+                <button type="submit" class="btn primary-btn">
+                    Sačuvaj izmene
+                </button>
+            </form>
+        </div>
+
+    </div>
+</main>
+
+</body>
+</html>

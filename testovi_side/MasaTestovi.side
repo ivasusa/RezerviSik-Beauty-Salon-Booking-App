@@ -1,0 +1,1834 @@
+{
+  "id": "b82f3c55-2c49-4052-8ef0-94621766e228",
+  "version": "2.0",
+  "name": "MasaTestovi",
+  "url": "http://127.0.0.1:8000",
+  "tests": [{
+    "id": "318fb2b3-e034-4962-b95e-9187ef3e54b0",
+    "name": "ZakazivanjeTerminaKlijent",
+    "commands": [{
+      "id": "cb4cec30-3403-4bab-8a50-c3572cc80c6f",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aa4a5930-9b12-4187-b04c-d42493d7697f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1479x805",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6b03d533-6f3c-447e-a4a7-9a966a275fb0",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijava",
+      "targets": [
+        ["linkText=Prijava", "linkText"],
+        ["css=a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijava')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/login/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijava')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e695cfaf-3432-4ccb-8ae4-2ebd242150a6",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "818da7ec-5222-43ab-8652-9757a49245d3",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "testiranjeklijent@gmail.com"
+    }, {
+      "id": "bb7a1e9e-cdfa-419a-9aec-6189af14370a",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2d6d9e6-5757-47b7-8eb6-00aec597e27c",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "2433b16a-6f32-4ed6-a996-152731660de9",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//button[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "49a565da-d966-40fe-9f6b-b9c608f7849a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(1)",
+      "targets": [
+        ["css=.btn:nth-child(1)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Pretraži salone')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8e7e2f59-9e40-4f4d-80d9-597da23b8473",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Pogledaj detalje",
+      "targets": [
+        ["linkText=Pogledaj detalje", "linkText"],
+        ["css=.salon-card:nth-child(1) .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Pogledaj detalje')]", "xpath:link"],
+        ["xpath=//div[@id='salon-grid']/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/salon/1/')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Pogledaj detalje')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "efc32fdb-6bef-4df6-89ad-56a3ec89bcdd",
+      "comment": "",
+      "command": "click",
+      "target": "id=dateInput",
+      "targets": [
+        ["id=dateInput", "id"],
+        ["css=#dateInput", "css:finder"],
+        ["xpath=//input[@id='dateInput']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "868fac9a-f4d7-45a2-a3d3-74a452cb1106",
+      "comment": "",
+      "command": "type",
+      "target": "id=dateInput",
+      "targets": [
+        ["id=dateInput", "id"],
+        ["css=#dateInput", "css:finder"],
+        ["xpath=//input[@id='dateInput']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2026-03-16"
+    }, {
+      "id": "5919bdd2-c2f3-4db7-aab8-3bd277c4350d",
+      "comment": "",
+      "command": "click",
+      "target": "id=loadSlotsBtn",
+      "targets": [
+        ["id=loadSlotsBtn", "id"],
+        ["css=#loadSlotsBtn", "css:finder"],
+        ["xpath=//button[@id='loadSlotsBtn']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prikaži slobodne termine')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cc612863-b8f6-4d9e-9534-a55c106ef3aa",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(4) > .btn",
+      "targets": [
+        ["css=li:nth-child(4) > .btn", "css:finder"],
+        ["xpath=(//button[@type='button'])[4]", "xpath:attributes"],
+        ["xpath=//ul[@id='slotsList']/li[4]/button", "xpath:idRelative"],
+        ["xpath=//li[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'08:30 — Nikola Nikolic')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d96e4a5a-3fe5-464b-803a-544ca7178a9f",
+      "comment": "",
+      "command": "click",
+      "target": "id=confirmBtn",
+      "targets": [
+        ["id=confirmBtn", "id"],
+        ["css=#confirmBtn", "css:finder"],
+        ["xpath=//button[@id='confirmBtn']", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Zakaži')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbec3a85-5f81-4bb9-b691-1e52256d1c32",
+      "comment": "",
+      "command": "click",
+      "target": "css=html",
+      "targets": [
+        ["css=html", "css:finder"],
+        ["xpath=//html", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "63798cb2-2b9e-4e7c-b519-8c0262953ba8",
+    "name": "OtkazivanjeTerminaKlijent",
+    "commands": [{
+      "id": "e1cbcc6d-2461-4c01-9164-f5b15ffabf66",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d1831eee-1d67-43a2-9cca-eb157ae76ec9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1479x805",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "771c78c2-18aa-499a-925b-c600d7d8756a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijava",
+      "targets": [
+        ["linkText=Prijava", "linkText"],
+        ["css=a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijava')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/login/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijava')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "910c7c65-da56-451c-8c74-bdf1c8997f8a",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fd05b27c-6b07-4d48-a43c-286a82fb3af5",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "testiranjeklijent@gmail.com"
+    }, {
+      "id": "e57240ed-3022-4685-80b2-2ec5af5af8eb",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3eee19ab-87ef-4853-a9db-5ef8f716f3af",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "35118fb0-46a1-4773-92cd-29ba021ff1c5",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//button[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9fc226dc-5636-4ab8-9b17-ae116d44ad4a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Moje rezervacije",
+      "targets": [
+        ["linkText=Moje rezervacije", "linkText"],
+        ["css=li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Moje rezervacije')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/klijent/moje-rez/')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Moje rezervacije')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "39e0f934-f762-446a-a8f6-f5ad2edef4b3",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) .btn",
+      "targets": [
+        ["css=tr:nth-child(1) .btn", "css:finder"],
+        ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='appointments']/table/tbody/tr/td[5]/form/button", "xpath:idRelative"],
+        ["xpath=//td[5]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Otkaži')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "0b9dc833-ad49-4cc5-9367-4cc8e410beb3",
+    "name": "DodavanjeUslugeVlasnik",
+    "commands": [{
+      "id": "e61a7318-4c66-4511-853c-b5a92e03f1cf",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "77001fb7-e45b-45b5-acd8-549eb3a790de",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1479x805",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dcadf816-62e0-4324-b9b1-3ca8ad0540b2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.header",
+      "targets": [
+        ["css=.header", "css:finder"],
+        ["xpath=//header", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "092fea53-352c-4bbc-b9c9-94797f271963",
+      "comment": "",
+      "command": "click",
+      "target": "css=.header",
+      "targets": [
+        ["css=.header", "css:finder"],
+        ["xpath=//header", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "106cead4-1cee-4e43-b076-0f0be8a4dd90",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijava",
+      "targets": [
+        ["linkText=Prijava", "linkText"],
+        ["css=a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijava')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/login/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijava')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "759c0487-dec0-4823-a01d-ef122e547766",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f8b0960-d15b-4d31-866a-bd5447213b2e",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "testvlasnik@gmail.com"
+    }, {
+      "id": "aca88e7a-ce29-4a8f-9f24-da7157b61d61",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb392cf8-4e1b-4a55-a879-3ab716a3f8ca",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "fb0341b5-a41c-4939-8f54-fc36ffe03ff2",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//button[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "690de0ab-0c81-4aea-af01-b3bee81b4178",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Usluge",
+      "targets": [
+        ["linkText=Usluge", "linkText"],
+        ["css=li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Usluge')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/owner/services/')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Usluge')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ca622c51-5d91-4240-87f8-0b2f0b15ef67",
+      "comment": "",
+      "command": "click",
+      "target": "id=showAddServiceBtn",
+      "targets": [
+        ["id=showAddServiceBtn", "id"],
+        ["css=#showAddServiceBtn", "css:finder"],
+        ["xpath=//button[@id='showAddServiceBtn']", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Dodaj Novu Uslugu')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8cf31ebf-c351-41fb-947b-16e2413b0e38",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_name",
+      "targets": [
+        ["id=id_name", "id"],
+        ["name=name", "name"],
+        ["css=#id_name", "css:finder"],
+        ["xpath=//input[@id='id_name']", "xpath:attributes"],
+        ["xpath=//div[@id='add-service-form']/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f1c769b-4b43-455e-b511-8a326ff67d52",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_name",
+      "targets": [
+        ["id=id_name", "id"],
+        ["name=name", "name"],
+        ["css=#id_name", "css:finder"],
+        ["xpath=//input[@id='id_name']", "xpath:attributes"],
+        ["xpath=//div[@id='add-service-form']/form/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "novausluga"
+    }, {
+      "id": "884be769-73f0-4089-92bf-827f6c862c8e",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_category",
+      "targets": [
+        ["id=id_category", "id"],
+        ["name=category", "name"],
+        ["css=#id_category", "css:finder"],
+        ["xpath=//input[@id='id_category']", "xpath:attributes"],
+        ["xpath=//div[@id='add-service-form']/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab8ea5a2-e7db-49ba-988d-907e038ac010",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_category",
+      "targets": [
+        ["id=id_category", "id"],
+        ["name=category", "name"],
+        ["css=#id_category", "css:finder"],
+        ["xpath=//input[@id='id_category']", "xpath:attributes"],
+        ["xpath=//div[@id='add-service-form']/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "opis"
+    }, {
+      "id": "2d15298c-6fcc-46ee-be85-5c0160b780e6",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_duration",
+      "targets": [
+        ["id=id_duration", "id"],
+        ["name=duration", "name"],
+        ["css=#id_duration", "css:finder"],
+        ["xpath=//input[@id='id_duration']", "xpath:attributes"],
+        ["xpath=//div[@id='add-service-form']/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d420b1a0-15fc-49c7-923a-061491f443e4",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_duration",
+      "targets": [
+        ["id=id_duration", "id"],
+        ["name=duration", "name"],
+        ["css=#id_duration", "css:finder"],
+        ["xpath=//input[@id='id_duration']", "xpath:attributes"],
+        ["xpath=//div[@id='add-service-form']/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "60"
+    }, {
+      "id": "28162097-061a-411c-ae9d-36726ec82865",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_price",
+      "targets": [
+        ["id=id_price", "id"],
+        ["name=price", "name"],
+        ["css=#id_price", "css:finder"],
+        ["xpath=//input[@id='id_price']", "xpath:attributes"],
+        ["xpath=//div[@id='add-service-form']/form/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "304d76b2-260e-4dbc-9f56-22ed28ba424f",
+      "comment": "",
+      "command": "type",
+      "target": "id=id_price",
+      "targets": [
+        ["id=id_price", "id"],
+        ["name=price", "name"],
+        ["css=#id_price", "css:finder"],
+        ["xpath=//input[@id='id_price']", "xpath:attributes"],
+        ["xpath=//div[@id='add-service-form']/form/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "1700"
+    }, {
+      "id": "0bc1441d-dd82-4f5e-9f05-7edd3e4082d3",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_category",
+      "targets": [
+        ["id=id_category", "id"],
+        ["name=category", "name"],
+        ["css=#id_category", "css:finder"],
+        ["xpath=//input[@id='id_category']", "xpath:attributes"],
+        ["xpath=//div[@id='add-service-form']/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f027abe7-6c8d-4333-9dbd-e318b941fbda",
+      "comment": "",
+      "command": "click",
+      "target": "id=dodajUsluguBtn",
+      "targets": [
+        ["id=dodajUsluguBtn", "id"],
+        ["css=#dodajUsluguBtn", "css:finder"],
+        ["xpath=//button[@id='dodajUsluguBtn']", "xpath:attributes"],
+        ["xpath=//div[@id='add-service-form']/form/button", "xpath:idRelative"],
+        ["xpath=//div/div/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Dodaj Uslugu')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "4e7d1c80-566f-439d-914d-e31c5e710d9b",
+    "name": "BrisanjeUslugeVlasnik",
+    "commands": [{
+      "id": "7eafde9f-fbf1-42d1-a42f-f1a36d1fb5fc",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "76080e03-396a-41b9-8bc6-1bea1bdcd9bd",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1479x805",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "61708b74-5340-47cb-ba56-f8e301099157",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijava",
+      "targets": [
+        ["linkText=Prijava", "linkText"],
+        ["css=a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijava')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/login/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijava')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "63cc263d-bf9c-4586-8880-9e550f491992",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea5a98ef-8409-4bed-8786-34c9cd3a4582",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "221022fc-33b7-4783-b3a3-7eae39892d98",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "testiranjevlasnik@gmail.com"
+    }, {
+      "id": "80033b22-5fe5-4368-a096-bd8348fba5b6",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c1b98b24-bfbb-465f-920e-b04bfce6cf66",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "8422fa4e-1a83-4db7-807c-f2d1a23c6ede",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//button[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6de444dd-5894-43f3-b230-f714488e29a5",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c1a7cc3-dc01-4d2c-8616-487cfd348aed",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "testvlasnik@gmail.com"
+    }, {
+      "id": "740cc557-0195-434e-ae20-13abfb43fb04",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2dd262e2-46b7-48be-af57-b1484bb4ae4a",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "9deba4b7-73eb-4d15-a27d-60e50bb220ca",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//button[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3fd909f1-2c54-4a8f-ad91-1d3398577d1e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Usluge",
+      "targets": [
+        ["linkText=Usluge", "linkText"],
+        ["css=li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Usluge')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/owner/services/')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Usluge')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "db5ca079-650f-4057-b317-c77a520290d0",
+      "comment": "",
+      "command": "click",
+      "target": "id=deleteUslugaBtn_8",
+      "targets": [
+        ["id=deleteUslugaBtn_8", "id"],
+        ["css=#deleteUslugaBtn_8", "css:finder"],
+        ["xpath=//button[@id='deleteUslugaBtn_8']", "xpath:attributes"],
+        ["xpath=//td[5]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Obriši')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "c6292cbc-dc46-44d5-96e3-c916c3012876",
+    "name": "ZakazivanjeTerminaOsoblje",
+    "commands": [{
+      "id": "e5d97d6d-35ef-48f9-baed-2eb08917a6ea",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cc92209f-ca02-4d0b-be8d-42ce00520bc3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1479x805",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2641fdf0-d1b3-4605-a42c-b4b91d601fa1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav",
+      "targets": [
+        ["css=.nav", "css:finder"],
+        ["xpath=//nav", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbc65c2a-1987-4db0-9606-839b853e7263",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijava",
+      "targets": [
+        ["linkText=Prijava", "linkText"],
+        ["css=a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijava')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/login/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijava')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5b5d3e4-7eae-4531-9e1b-f49a7cce161b",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aff329a5-5fa9-4068-b4b0-3f52b9bddf94",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "testosoblje@gmail.com"
+    }, {
+      "id": "60e653fc-9ae2-4787-8fc3-e368acd9a983",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ef55c98a-cf84-4680-93b7-8eb1976ba81e",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "1aebfd11-2384-48c6-9f4c-df82b5556618",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//button[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1dc18bc1-3cee-4de9-8a10-01a64b1e7585",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Zakaži Termin",
+      "targets": [
+        ["linkText=Zakaži Termin", "linkText"],
+        ["css=li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Zakaži Termin')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/osoblje/zakazi-termin/')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Zakaži Termin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f23dcb5e-2fbb-4c8a-ac66-c949f00757b5",
+      "comment": "",
+      "command": "click",
+      "target": "id=client-name",
+      "targets": [
+        ["id=client-name", "id"],
+        ["css=#client-name", "css:finder"],
+        ["xpath=//input[@id='client-name']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7930d621-b45e-4f6e-a6de-c94b419b64ed",
+      "comment": "",
+      "command": "type",
+      "target": "id=client-name",
+      "targets": [
+        ["id=client-name", "id"],
+        ["css=#client-name", "css:finder"],
+        ["xpath=//input[@id='client-name']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "klijentime"
+    }, {
+      "id": "36413242-0ad2-4a9f-81b6-9f9590a1648e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-row:nth-child(1)",
+      "targets": [
+        ["css=.form-row:nth-child(1)", "css:finder"],
+        ["xpath=//form[@id='staff-booking-form']/div", "xpath:idRelative"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "12405583-fcb1-4bc8-bdbb-2f98f9d8e41b",
+      "comment": "",
+      "command": "click",
+      "target": "id=client-phone",
+      "targets": [
+        ["id=client-phone", "id"],
+        ["css=#client-phone", "css:finder"],
+        ["xpath=//input[@id='client-phone']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4170eecc-fb49-4e68-8e60-58de4cf7dbb8",
+      "comment": "",
+      "command": "type",
+      "target": "id=client-phone",
+      "targets": [
+        ["id=client-phone", "id"],
+        ["css=#client-phone", "css:finder"],
+        ["xpath=//input[@id='client-phone']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "064235178"
+    }, {
+      "id": "355b036d-5cb9-4f84-be10-abbc8f1a89b2",
+      "comment": "",
+      "command": "click",
+      "target": "id=client-email",
+      "targets": [
+        ["id=client-email", "id"],
+        ["css=#client-email", "css:finder"],
+        ["xpath=//input[@id='client-email']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eabacb02-a4ef-443f-9da5-a28a5ad2367c",
+      "comment": "",
+      "command": "select",
+      "target": "id=service-id",
+      "targets": [],
+      "value": "label=usluga1 (90min)"
+    }, {
+      "id": "8045c134-e4ea-467d-9bd3-5954be810fc9",
+      "comment": "",
+      "command": "click",
+      "target": "css=#service-id > option:nth-child(2)",
+      "targets": [
+        ["css=#service-id > option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='9']", "xpath:attributes"],
+        ["xpath=//select[@id='service-id']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'usluga1 (90min)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "88ae3117-2d6b-434c-b657-d734860376fb",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=staff-id",
+      "targets": [
+        ["id=staff-id", "id"],
+        ["css=#staff-id", "css:finder"],
+        ["xpath=//select[@id='staff-id']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": "-686.9000244140625,-323.6000061035156"
+    }, {
+      "id": "db69337b-cc9f-43e9-8b2a-8ffed2ebfa52",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=staff-id",
+      "targets": [
+        ["id=staff-id", "id"],
+        ["css=#staff-id", "css:finder"],
+        ["xpath=//select[@id='staff-id']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": "-686.9000244140625,-323.6000061035156"
+    }, {
+      "id": "fd1c9902-a133-4063-a464-13b942afa0c9",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=staff-id",
+      "targets": [
+        ["id=staff-id", "id"],
+        ["css=#staff-id", "css:finder"],
+        ["xpath=//select[@id='staff-id']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": "-686.9000244140625,-323.6000061035156"
+    }, {
+      "id": "4c3040fc-66d8-43c3-b587-4fa7adc9fa00",
+      "comment": "",
+      "command": "click",
+      "target": "id=staff-id",
+      "targets": [
+        ["id=staff-id", "id"],
+        ["css=#staff-id", "css:finder"],
+        ["xpath=//select[@id='staff-id']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c57cdc0-4505-478d-a3e5-7ff4f3e73a3d",
+      "comment": "",
+      "command": "select",
+      "target": "id=staff-id",
+      "targets": [],
+      "value": "label=testosoblje Prezime (osoblje)"
+    }, {
+      "id": "e0a41244-6fb5-40bb-afd6-2a26c0f0a413",
+      "comment": "",
+      "command": "click",
+      "target": "css=#staff-id > option:nth-child(2)",
+      "targets": [
+        ["css=#staff-id > option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='6']", "xpath:attributes"],
+        ["xpath=//select[@id='staff-id']/option[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/select/option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'testosoblje Prezime (osoblje)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5ce851e6-01fe-4b9a-8e24-ef35d5dc4017",
+      "comment": "",
+      "command": "click",
+      "target": "id=appointment-date",
+      "targets": [
+        ["id=appointment-date", "id"],
+        ["css=#appointment-date", "css:finder"],
+        ["xpath=//input[@id='appointment-date']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "363f9e63-d702-440d-8c0a-c9d9f528381f",
+      "comment": "",
+      "command": "type",
+      "target": "id=appointment-date",
+      "targets": [
+        ["id=appointment-date", "id"],
+        ["css=#appointment-date", "css:finder"],
+        ["xpath=//input[@id='appointment-date']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/input", "xpath:position"]
+      ],
+      "value": "2026-03-19"
+    }, {
+      "id": "85eb79f9-a88b-4fe2-84f8-f018eb15dacf",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": "-1071.9000244140625,-323.6000061035156"
+    }, {
+      "id": "38e92ba5-17f6-4a65-bf1c-c1b1d6b50cbf",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": "-1071.9000244140625,-323.6000061035156"
+    }, {
+      "id": "f8af3369-0c5f-4425-8588-42a216370bde",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": "-1071.9000244140625,-323.6000061035156"
+    }, {
+      "id": "a1693ad7-69de-4db1-ae49-4d4184b791aa",
+      "comment": "",
+      "command": "click",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ce53bc3-04e9-4a98-8abc-6234b6fb327f",
+      "comment": "",
+      "command": "select",
+      "target": "id=appointment-time",
+      "targets": [],
+      "value": "label=12:30"
+    }, {
+      "id": "de701ac5-bb8e-4cb3-933c-3a8e21779d3e",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(9)",
+      "targets": [
+        ["css=option:nth-child(9)", "css:finder"],
+        ["xpath=//option[@value='12:30']", "xpath:attributes"],
+        ["xpath=//select[@id='appointment-time']/option[9]", "xpath:idRelative"],
+        ["xpath=//option[9]", "xpath:position"],
+        ["xpath=//option[contains(.,'12:30')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "99e838eb-e2f1-4c30-bebc-d8111d5d88ab",
+      "comment": "",
+      "command": "click",
+      "target": "css=#staff-booking-form > #staff-booking",
+      "targets": [
+        ["css=#staff-booking-form > #staff-booking", "css:finder"],
+        ["xpath=//button[@id='staff-booking']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/button", "xpath:idRelative"],
+        ["xpath=//div/div/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Zakaži termin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4fe094f6-0ee2-40c0-8784-cfcbb222ed6a",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": "-1071.9000244140625,-323.6000061035156"
+    }, {
+      "id": "bd2cd124-a5db-45c2-b05c-34c44ce8faa5",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": "-1071.9000244140625,-323.6000061035156"
+    }, {
+      "id": "ba1fc038-00fe-4796-8cb6-8e0d88e587e8",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": "-1071.9000244140625,-323.6000061035156"
+    }, {
+      "id": "19562068-8160-4236-8164-621d05ece2d2",
+      "comment": "",
+      "command": "click",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9bfd2d9d-c358-44a2-b16b-150f044acd0b",
+      "comment": "",
+      "command": "select",
+      "target": "id=appointment-time",
+      "targets": [],
+      "value": "label=09:30"
+    }, {
+      "id": "45914c8e-c1fa-445c-8d32-5ebf54c70dce",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(3)",
+      "targets": [
+        ["css=option:nth-child(3)", "css:finder"],
+        ["xpath=//option[@value='09:30']", "xpath:attributes"],
+        ["xpath=//select[@id='appointment-time']/option[3]", "xpath:idRelative"],
+        ["xpath=//option[3]", "xpath:position"],
+        ["xpath=//option[contains(.,'09:30')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1a6e304e-8840-4a6a-a9f5-891de06b1988",
+      "comment": "",
+      "command": "click",
+      "target": "css=#staff-booking-form > #staff-booking",
+      "targets": [
+        ["css=#staff-booking-form > #staff-booking", "css:finder"],
+        ["xpath=//button[@id='staff-booking']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/button", "xpath:idRelative"],
+        ["xpath=//div/div/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Zakaži termin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "deb92e6d-a882-4c6d-b8b1-ec1d33eedbef",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": "-1071.9000244140625,-323.6000061035156"
+    }, {
+      "id": "347e5f07-e762-4ced-97bc-5d494cbbf273",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": "-1071.9000244140625,-323.6000061035156"
+    }, {
+      "id": "cbea43e4-001f-4ef0-add6-43530ef2df86",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": "-1071.9000244140625,-323.6000061035156"
+    }, {
+      "id": "4e7b5f0c-bd3d-446e-9169-0170a2a884d0",
+      "comment": "",
+      "command": "click",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6bc49812-dc91-45e0-9e7d-b3d174ac9b01",
+      "comment": "",
+      "command": "click",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e3d0054d-13e8-4a2a-aac8-e0c1e2f49bd2",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": "-1071.9000244140625,-323.6000061035156"
+    }, {
+      "id": "70a285c2-fbd9-4b96-ad21-ccfd40dc3c96",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": "-1071.9000244140625,-323.6000061035156"
+    }, {
+      "id": "2b4f104d-d5bd-4695-81b1-ad551b9e59e3",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": "-1071.9000244140625,-323.6000061035156"
+    }, {
+      "id": "78324065-212a-4390-af24-2dae98239714",
+      "comment": "",
+      "command": "click",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a6548d1-8c2f-40da-a5ec-a7902978f7d4",
+      "comment": "",
+      "command": "click",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "acea21f8-ec0c-4c8c-b6c4-de3443e0f56e",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=appointment-time",
+      "targets": [
+        ["id=appointment-time", "id"],
+        ["css=#appointment-time", "css:finder"],
+        ["xpath=//select[@id='appointment-time']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[4]/select", "xpath:idRelative"],
+        ["xpath=//div[4]/select", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "c7252165-a6ee-4d49-8b6b-ece5c858e51d",
+    "name": "ZakazivanjeNepopunjenaPolja",
+    "commands": [{
+      "id": "d5bddf7b-34d7-4946-8c56-070669677dd2",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "57a0f9cb-41b2-46de-89c4-911fc75643cf",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1479x805",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ad5970f6-bde5-442a-ad7f-2af1a74432bf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav",
+      "targets": [
+        ["css=.nav", "css:finder"],
+        ["xpath=//nav", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b1deedc2-9be5-47f9-857a-73ee40580a34",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Prijava",
+      "targets": [
+        ["linkText=Prijava", "linkText"],
+        ["css=a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Prijava')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/login/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Prijava')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f59a653b-23a4-4319-89c9-c65c0ba73ac6",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2573d86d-15bc-4130-906e-7878da027fa4",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "testosoblje@gmail.com"
+    }, {
+      "id": "517becdd-38d3-4b65-b5bf-355b791d555b",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3538cc01-86b5-4288-9baf-80f139748fc9",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "2ab44abf-b511-449d-9afd-2b52c821d253",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//button[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prijavi se')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5c72d1b3-3309-4f20-bcaf-a973cdb6e094",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Zakaži Termin",
+      "targets": [
+        ["linkText=Zakaži Termin", "linkText"],
+        ["css=li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Zakaži Termin')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/osoblje/zakazi-termin/')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Zakaži Termin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3dae82a7-2711-4818-960d-cc67c49a1649",
+      "comment": "",
+      "command": "click",
+      "target": "id=client-name",
+      "targets": [
+        ["id=client-name", "id"],
+        ["css=#client-name", "css:finder"],
+        ["xpath=//input[@id='client-name']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8e5399b5-4d07-459c-aef3-f252ebc7cf79",
+      "comment": "",
+      "command": "type",
+      "target": "id=client-name",
+      "targets": [
+        ["id=client-name", "id"],
+        ["css=#client-name", "css:finder"],
+        ["xpath=//input[@id='client-name']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "sdfghjkl"
+    }, {
+      "id": "63f277db-3cd3-47c5-add8-749e1996e8d4",
+      "comment": "",
+      "command": "click",
+      "target": "id=client-phone",
+      "targets": [
+        ["id=client-phone", "id"],
+        ["css=#client-phone", "css:finder"],
+        ["xpath=//input[@id='client-phone']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "59e59572-712f-4a30-a90e-423fd1feb1fb",
+      "comment": "",
+      "command": "type",
+      "target": "id=client-phone",
+      "targets": [
+        ["id=client-phone", "id"],
+        ["css=#client-phone", "css:finder"],
+        ["xpath=//input[@id='client-phone']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "0675432"
+    }, {
+      "id": "4a3098eb-3ee0-4473-af1a-78cbcefe55c4",
+      "comment": "",
+      "command": "click",
+      "target": "id=service-id",
+      "targets": [
+        ["id=service-id", "id"],
+        ["css=#service-id", "css:finder"],
+        ["xpath=//select[@id='service-id']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "921f2b27-2291-43a5-96c5-efbc6587db1d",
+      "comment": "",
+      "command": "select",
+      "target": "id=service-id",
+      "targets": [],
+      "value": "label=usluga1 (90min)"
+    }, {
+      "id": "80ee3dff-902c-4b17-b03c-4f88aaac4ead",
+      "comment": "",
+      "command": "click",
+      "target": "css=#service-id > option:nth-child(2)",
+      "targets": [
+        ["css=#service-id > option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='9']", "xpath:attributes"],
+        ["xpath=//select[@id='service-id']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'usluga1 (90min)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6bf4c78f-31c6-4d4a-a64a-5a768b4b4118",
+      "comment": "",
+      "command": "click",
+      "target": "css=#staff-booking-form > #staff-booking",
+      "targets": [
+        ["css=#staff-booking-form > #staff-booking", "css:finder"],
+        ["xpath=//button[@id='staff-booking']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/button", "xpath:idRelative"],
+        ["xpath=//div/div/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Zakaži termin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "12a2adc2-91c5-4f94-9ab0-8d346a18fab8",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=staff-id",
+      "targets": [
+        ["id=staff-id", "id"],
+        ["css=#staff-id", "css:finder"],
+        ["xpath=//select[@id='staff-id']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": "-686.9000244140625,-323.6000061035156"
+    }, {
+      "id": "6e5be299-765b-4d33-8331-770f5f28c023",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=staff-id",
+      "targets": [
+        ["id=staff-id", "id"],
+        ["css=#staff-id", "css:finder"],
+        ["xpath=//select[@id='staff-id']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": "-686.9000244140625,-323.6000061035156"
+    }, {
+      "id": "7691cef0-6d24-4d5d-ab6b-2d6c8857d8a9",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=staff-id",
+      "targets": [
+        ["id=staff-id", "id"],
+        ["css=#staff-id", "css:finder"],
+        ["xpath=//select[@id='staff-id']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": "-686.9000244140625,-323.6000061035156"
+    }, {
+      "id": "90a77197-20b6-4685-96b0-605771b158ed",
+      "comment": "",
+      "command": "click",
+      "target": "id=staff-id",
+      "targets": [
+        ["id=staff-id", "id"],
+        ["css=#staff-id", "css:finder"],
+        ["xpath=//select[@id='staff-id']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div[2]/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "78a64ff7-d2bf-40f0-b85e-91beb253712a",
+      "comment": "",
+      "command": "select",
+      "target": "id=staff-id",
+      "targets": [],
+      "value": "label=testosoblje Prezime (osoblje)"
+    }, {
+      "id": "b5552127-fdbf-4ae4-90e4-35df39c25522",
+      "comment": "",
+      "command": "click",
+      "target": "css=#staff-id > option:nth-child(2)",
+      "targets": [
+        ["css=#staff-id > option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='6']", "xpath:attributes"],
+        ["xpath=//select[@id='staff-id']/option[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/select/option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'testosoblje Prezime (osoblje)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d9ec4661-efa0-4400-9bdb-7ea164c6f499",
+      "comment": "",
+      "command": "click",
+      "target": "css=#staff-booking-form > #staff-booking",
+      "targets": [
+        ["css=#staff-booking-form > #staff-booking", "css:finder"],
+        ["xpath=//button[@id='staff-booking']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/button", "xpath:idRelative"],
+        ["xpath=//div/div/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Zakaži termin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "80462cbf-87b2-4d50-9fe9-1ea04d50327f",
+      "comment": "",
+      "command": "click",
+      "target": "id=client-phone",
+      "targets": [
+        ["id=client-phone", "id"],
+        ["css=#client-phone", "css:finder"],
+        ["xpath=//input[@id='client-phone']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "842c5cad-b6a8-4f79-a202-603ec3b5a029",
+      "comment": "",
+      "command": "click",
+      "target": "id=client-phone",
+      "targets": [
+        ["id=client-phone", "id"],
+        ["css=#client-phone", "css:finder"],
+        ["xpath=//input[@id='client-phone']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c833eca1-f0f1-4117-940c-f0c648866a4c",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=client-phone",
+      "targets": [
+        ["id=client-phone", "id"],
+        ["css=#client-phone", "css:finder"],
+        ["xpath=//input[@id='client-phone']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "56cd7803-2fd6-4c9f-a41e-11a14c40d372",
+      "comment": "",
+      "command": "click",
+      "target": "id=client-phone",
+      "targets": [
+        ["id=client-phone", "id"],
+        ["css=#client-phone", "css:finder"],
+        ["xpath=//input[@id='client-phone']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1119870-399a-4085-9abd-89ac8eceb6d4",
+      "comment": "",
+      "command": "type",
+      "target": "id=client-phone",
+      "targets": [
+        ["id=client-phone", "id"],
+        ["css=#client-phone", "css:finder"],
+        ["xpath=//input[@id='client-phone']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "64c4a712-d9da-40eb-a5f4-2b7be187b62b",
+      "comment": "",
+      "command": "click",
+      "target": "css=#staff-booking-form > #staff-booking",
+      "targets": [
+        ["css=#staff-booking-form > #staff-booking", "css:finder"],
+        ["xpath=//button[@id='staff-booking']", "xpath:attributes"],
+        ["xpath=//form[@id='staff-booking-form']/button", "xpath:idRelative"],
+        ["xpath=//div/div/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Zakaži termin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "971963f6-7e23-4006-9786-dcabbc3bcf75",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://127.0.0.1:8000/"],
+  "plugins": []
+}
